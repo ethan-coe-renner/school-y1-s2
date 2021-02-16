@@ -1,0 +1,31 @@
+#+title: Homework 1
+#+author: Ethan Coe-Renner
+
+1. (83)_10 to binary
+   - 83 / 2 = 41 r 1
+   - 41 / 2 = 20 r 1
+   - 20 / 2 = 10 r 0
+   - 10 / 2 = 5 r 0
+   - 5 / 2 = 2 r 1
+   - 2 / 2 = 1 r 0
+   - 1 / 2 = 0 r 1
+   - (83)_10 = (1010011)_2
+2. (1101010)_2 = 1(2) + 1(8) + 1(32) + 1(64) = 106
+3. f(x_{1},x_{2},x_{3}) = \sum{}m(1,4,7)
+
+   i. 
+       | x_1 | x_2 | x_3 | f |
+       |-----+-----+-----+---|
+       |   0 |   0 |   0 | 0 |
+       |   0 |   0 |   1 | 1 |
+       |   0 |   1 |   0 | 0 |
+       |   0 |   1 |   1 | 0 |
+       |   1 |   0 |   0 | 1 |
+       |   1 |   0 |   1 | 0 |
+       |   1 |   1 |   0 | 0 |
+       |   1 |   1 |   1 | 1 |
+   ii. f = \overline{x_1} \overline{x_2} x_3 + x_1 \overline{x_2} \overline{x_3} + x_1 x_2 x_3
+
+   iii. [[./File_000 (1).jpeg]]
+      - cost = 4(2) + 3(2 + 2(3)) + 2 + 2(3) = 40
+   iv. To find the m_1 term I anded $\overline{x_1} \overline{x_2}$ and $x_3$, taking the complements of x_1 and x_2 because they are 0 on that line

@@ -1,0 +1,30 @@
+#+title: group work 02-02
+#+author: Ethan Coe-Renner
+
+
+1. 01 10 11 = 1/6*5/6 + 1/6*5/6 + 1/6*1/6 = 11/36 = 0.305
+2. 
+   
+    #+begin_src R :exports both
+      values=c(1,0)
+      probs=c(1/6,5/6)
+
+      propWins=replicate(1000,mean(sample(values,2,probs,replace=TRUE)))
+      sum(propWins>0)/1000
+    #+end_src
+
+    #+RESULTS:
+    : 0.301
+
+     very close to 0.305 (from q1)
+3. 
+    #+begin_src R :exports both
+      values=c(1,0)
+      probs=c(1/6,5/6)
+
+      propWins=replicate(1000,mean(sample(values,6,probs,replace=TRUE)))
+      sum(propWins>0)/1000
+    #+end_src
+
+    #+RESULTS:
+    : 0.668

@@ -1,0 +1,23 @@
+#+title: Intro To R and Rstudio
+#+author: Ethan Coe-Renner
+
+* Question 1
+#+begin_src R :results output :exports both
+  skittles=c(12,15,14,14,13,15)
+  print(mean(skittles))
+  print(median(skittles))
+#+end_src
+
+#+RESULTS:
+: [1] 13.83333
+: [1] 14
+
+The mean represents the average number of skittles per bag. Thus, there was an average of 13.8 skittles per bag
+It is calculated by dividing the sum of the numbers of skittles in each bag by the number of bags
+
+The median represents the number of skittles in the "middle" bag. This, the median bag had 14 skittles.
+It is calculated by sorting the bags by number of skittles and returning the number in the middle bag.
+
+* Notes
+I did this through org mode exported through latex.
+If this format doesn't work, I can redo it with rstudio, I just find this easier.

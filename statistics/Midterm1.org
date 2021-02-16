@@ -1,0 +1,83 @@
+#+title: Midterm 1
+#+author: Ethan Coe-Renner
+
+1. 
+   1. population parameter of interest: whether a student is in the pre-pharmacy program
+   2. sample frame: pacific undergraduates
+   3. sample statistic: 44 of respondants are pre-pharmacy
+   4. sample size: 94
+   5. variables: pre-pharm: catagorical (binary)
+2. 
+   
+    #+begin_src R :results output graphics file :file rotten_tomatoes.png :exports both
+      library(ggplot2)
+      pixar_vs_dreamworks = read.csv("~/school/statistics/pixar_vs_dreamworks.csv")
+      ggplot(pixar_vs_dreamworks,aes(x=rating_rotten_tomatoes)) +
+        geom_histogram(breaks=seq(30,100,by=10),fill = "green",
+                       color="black")+
+        labs(x="Rotten Tomatoes Ratings", y="Number of Movies",
+             title="Pixar and DreamWorks Movies, 1995-2014")
+    #+end_src
+
+    #+RESULTS:
+    [[file:rotten_tomatoes.png]]
+
+    #+begin_src R :results output :exports both
+      library(ggplot2)
+      pixar_vs_dreamworks = read.csv("~/school/statistics/pixar_vs_dreamworks.csv")
+      summary(pixar_vs_dreamworks$rating_rotten_tomatoes)
+    #+end_src
+
+    #+RESULTS:
+    :    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    :   36.00   69.00   78.00   77.24   96.00  100.00 
+
+    The graph above shows that there are two modes in these data, one between 70 and 80 and another between 90 and 100 (I left out the mode at 30-40 because it is so much less extreme than the others).
+    The graph is left skewed and has no outliers. 
+    The center of the data is around 78 (mean: 77.24, median: 78).
+    The data range from 36 to 100 (range: 64) with an IQR of 27.
+3. 
+    | In-Person Preference | Frequency |
+    |----------------------+-----------|
+    |                    1 |         1 |
+    |                    2 |        24 |
+    |                    3 |        23 |
+    |                    4 |        30 |
+    |                    5 |        37 |
+   1. mean = $\frac{1 * 1 + 2 * 24 + 3 * 23 + 4 * 30 + 5 * 37}{1 + 24 + 23 + 30 + 37} = \frac{423}{115} = 3.68$
+
+   2. median: 115 observations \therefore median at the 57.5th element \therefore median = 3
+
+   3. sample standard deviation = $\sqrt{\frac{1(1-3.68)^2 + 24(2-3.68)^2 + 23(3-3.68)^2 + 30(4-3.68)^2 + 37(5-3.68)^2}{115-1}} = 1.16$
+
+   4. IQR = 5 - 3 = 2
+
+4. 
+
+   1. $\frac{29}{115} = 0.25$
+
+   2. $\frac{29 + 7 + 1 + 40}{115} = 0.67$
+
+   3. $\frac{29}{29 + 7 + 1} = 0.78$
+
+   4. $\frac{29}{29+40} = 0.42$
+
+   5. I find it interesting how steeply the drop off is in marijuana consumption across support for BLM support.
+      I might have expected more of the partial supporters to have consumed marijuana, but it goes from almost 3:4 to almost 1:5 (consumed:never consumed)
+
+5. 
+   1. I found the Titanic data interesting. In particular, I thought that the data on survival based on class was interesting.
+      I wouldn't have expected the class to have as much effect on survival than it did. I do the calculations in the next part.
+
+   2. Compare the survival rates of each class on the ship (calculate probability of survival given that a passenger is in each class)
+
+      1. first class: $\frac{203}{325} = 0.62$
+
+      2. second class: $\frac{114}{357} = 0.32$
+
+      3. third class: $\frac{499}{1316} = 0.37$
+
+
+
+   
+   

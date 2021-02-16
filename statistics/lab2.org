@@ -1,0 +1,30 @@
+#+title: Lab 2: Intro to ggplot
+#+author: Ethan Coe-Renner
+
+1.
+   #+begin_src R :results output graphics file :file deaths.png :exports both
+     library(ggplot2)
+     covid = read.csv("~/school/statistics/covid_us2021.csv")
+     ggplot(covid,aes(x=deaths)) +
+       geom_histogram(breaks=seq(0,4000,by=200),fill = "green", color="black")+
+       labs(x="Number of COVID-19 Deaths, US", y="Number of Days")
+   #+end_src
+
+   #+RESULTS:
+   [[file:deaths.png]]
+
+2.
+
+   #+begin_src R :results output :exports both
+     covid = read.csv("~/school/statistics/covid_us2021.csv")
+     summary(covid$deaths)
+   #+end_src
+
+   #+RESULTS:
+   :    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   :     0.0   345.5   889.5   963.2  1329.8  3903.0 
+
+   According to the data presented, the center of the distribution is between 889 (median) and 963 (mean).
+   The IQR is 984.3 while the range is 3903.
+   The graph is right skewed and trimodal, with peaks around 0, 1100, and 2100.
+   There are no outliers.

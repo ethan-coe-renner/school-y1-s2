@@ -1,0 +1,29 @@
+#+title: Group Work 1-19
+#+author: Ethan Coe-Renner
+
+1.
+   #+begin_src R :results output graphics file :file class_standing.png :exports both
+     library(ggplot2)
+     surveySp2021 <- read.csv("~/school/statistics/surveySp2021.csv")
+     ggplot(surveySp2021,aes(x=class_standing)) +
+       geom_bar()+labs(x="Class Standing", y="number of students")
+   #+end_src
+
+   #+RESULTS:
+   [[file:class_standing.png]]
+   Sophomores and juniors make up the majority of our class, with the rest evenly split between freshman and seniors.
+
+2. 
+   #+begin_src R :results output graphics file :file test_positive.png :exports both
+     library(ggplot2)
+     surveySp2021 <- read.csv("~/school/statistics/surveySp2021.csv")
+     ggplot(surveySp2021,aes(x=number_of_people_who_tested_positive)) +
+       geom_histogram(breaks=seq(0,50,by=5),fill="green",color="black") +
+       labs(x="number known who tested positive", y="number students",
+            title="number of people students know who tested positive for Covid")
+   #+end_src
+
+   #+RESULTS:
+   [[file:test_positive.png]]
+
+Unimodal, left skewed, outlier around 50, range of 50 

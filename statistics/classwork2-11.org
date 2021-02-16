@@ -1,0 +1,34 @@
+#+title: Group Work 2-11
+#+author: Ethan Coe-Renner
+
+1. 
+    #+begin_src R :exports both
+      1 - pnorm((70-92)/25)
+    #+end_src
+
+    #+RESULTS:
+    : 0.810570345223288
+
+    81% of all students have driven faster than 70 mph.
+
+2. 
+     #+begin_src R :exports both
+       qnorm(0.9) * 25 + 92
+     #+end_src
+
+     #+RESULTS:
+     : 124.038789138615
+
+     speeds above 124 mph should be classified as reckless.
+
+3. 
+     #+begin_src R :exports both
+       qnorm(0.75) * 25 * 2
+     #+end_src
+
+     #+RESULTS:
+     : 33.7244875098041
+
+     The IQR of the fastest driving speeds is 33.72 mph
+
+   

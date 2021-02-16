@@ -1,0 +1,42 @@
+case,film,studio,month,year,budget_million_usd,gross_million_usd,profit_million_usd,rating_rotten_tomatoes,rating_metacritic,average_ratings
+1,The Prince of Egypt,DreamWorks,12,1998,70,219,149,79,64,71.5
+2,The Road to El Dorado,DreamWorks,3,2000,95,76,-19,49,51,50
+3,Chicken Run,DreamWorks,6,2000,45,225,180,97,88,92.5
+4,Shrek,DreamWorks,5,2001,60,484,424,88,84,86
+5,Spirit: Stallion of the Cimarron,DreamWorks,5,2002,80,123,43,69,52,60.5
+6,Sinbad: Legend of the Seven Seas,DreamWorks,7,2003,60,81,21,45,48,46.5
+7,Shrek 2,DreamWorks,5,2004,150,920,770,89,75,82
+8,Shark Tale,DreamWorks,10,2004,75,367,292,36,48,42
+9,Madagascar,DreamWorks,5,2005,75,533,458,55,57,56
+10,Wallace & Gromit: The Curse of the Were-Rabbit,DreamWorks,10,2005,30,193,163,95,87,91
+11,Over the Hedge,DreamWorks,5,2006,80,336,256,75,67,71
+12,Flushed Away,DreamWorks,11,2006,149,178,29,72,74,73
+13,Shrek the Third,DreamWorks,5,2007,160,799,639,40,58,49
+14,Bee Movie,DreamWorks,11,2007,150,288,138,51,54,52.5
+15,Kung Fu Panda,DreamWorks,6,2008,130,632,502,87,73,80
+16,Madagascar: Escape 2 Africa,DreamWorks,11,2008,150,604,454,64,61,62.5
+17,Monsters vs. Aliens,DreamWorks,3,2009,175,382,207,72,56,64
+18,How to Train Your Dragon,DreamWorks,3,2010,165,495,330,98,74,86
+19,Shrek Forever After,DreamWorks,5,2010,165,753,588,58,58,58
+20,Megamind,DreamWorks,11,2010,130,322,192,73,63,68
+21,Kung Fu Panda 2,DreamWorks,5,2011,150,666,516,81,67,74
+22,Puss in Boots,DreamWorks,10,2011,130,555,425,84,65,74.5
+23,Madagascar 3: Europe's Most Wanted,DreamWorks,6,2012,145,747,602,79,60,69.5
+24,Rise of the Guardians,DreamWorks,11,2012,145,307,162,74,57,65.5
+25,The Croods,DreamWorks,3,2013,135,587,452,70,55,62.5
+26,Turbo,DreamWorks,7,2013,135,283,148,67,58,62.5
+27,Mr. Peabody & Sherman,DreamWorks,3,2014,145,258,113,78,60,69
+28,Toy Story,Pixar,11,1995,30,362,332,100,92,96
+29,A Bug's Life,Pixar,11,1998,120,363,243,92,77,84.5
+30,Toy Story 2,Pixar,11,1999,90,485,395,100,88,94
+31,"Monsters, Inc.",Pixar,11,2001,115,563,448,96,78,87
+32,Finding Nemo,Pixar,5,2003,94,937,843,99,90,94.5
+33,The Incredibles,Pixar,11,2004,92,631,539,97,90,93.5
+34,Cars,Pixar,6,2006,120,462,342,74,73,73.5
+35,Ratatouille,Pixar,6,2007,150,624,474,96,96,96
+36,WALL-E,Pixar,6,2008,180,521,341,96,94,95
+37,Up,Pixar,5,2009,175,731,556,98,88,93
+38,Toy Story 3,Pixar,6,2010,200,1063,863,99,92,95.5
+39,Cars 2,Pixar,6,2011,200,560,360,39,57,48
+40,Brave,Pixar,6,2012,185,539,354,78,69,73.5
+41,Monsters University,Pixar,6,2013,200,744,544,78,65,71.5

@@ -1,0 +1,12 @@
+#+title: Classwork 1-26
+#+author: Ethan Coe-Renner
+
+1. $\frac{499}{1316} = 0.379$. This means that about 38% of the passangers on the titanic survived.
+2. $\frac{57}{1316} = 0.043$. There is only a 4% chance that a passenger is both a survivor and a child.
+3. $\frac{109 + 499 - 57}{1316} = 0.41$. 41% of the passengers either survived or are children
+4. $\frac{57}{499} = 0.11$. 11% of the survivors were children
+5. $\frac{57}{109} = 0.52$. 52% of children on the titanic survived
+6. the difference between d and e is sample size. d has a sample size of all survivors, while e has a sample size of just children.
+   e would be more important to me because it tells me that I have a 50% chance of surviving, d cant give me that information without more information.
+   
+   

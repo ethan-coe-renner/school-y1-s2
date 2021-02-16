@@ -1,0 +1,13 @@
+#+title: Probability notes
+#+author: Ethan Coe-Renner
+
+* Simulating elections given polls
+#+begin_src R :results output
+    values=c("Trump", "Not Trump")
+    probs=c(0.512,1-0.512)
+    voters=sample(values,1000,probs,replace=TRUE)
+    sum(voters=="Trump")/1000
+#+end_src
+
+#+RESULTS:
+: [1] 0.52

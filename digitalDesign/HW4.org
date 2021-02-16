@@ -1,0 +1,74 @@
+#+title: HW 4
+#+author: Ethan Coe-Renner
+
+1. 
+    f(x_1 , x_2 , x_3 , x_4) = \prod{}M(1,5,7,9,10,11,12,14,15)
+
+     |     | 0 0 | 0 1 | 1 1 | 1 0 |
+     |-----+-----+-----+-----+-----|
+     | /   |   < |     |     |     |
+     | 0 0 |   1 |   1 |   0 |   1 |
+     | 0 1 |   0 |   0 |   1 |   0 |
+     | 1 1 |   1 |   0 |   0 |   0 |
+     | 1 0 |   1 |   1 |   0 |   0 |
+
+     *Prime Implicants*
+
+     (x_1' + x_3'), (x_1 + x_3 + x_4'), (x_2 + x_3 + x_4'), (x_1' + x_2 + x_4'), (x_1' + x_2' + x_4), (x_2' + x_3' + x_4'), (x_1 + x_2' + x_4')
+
+     *Essential Prime Implicants*
+    
+     (x_1' + x_3'), (x_1' + x_2' + x_4)
+
+     *Simplest*
+    
+     (x_1' + x_3')(x_1 + x_3 + x_4')(x_1' + x_2' + x_4)(x_2' + x_3' + x_4')(x_2 + x_3 + x_4')
+
+2. 
+    f(x_1 , x_2 , x_3 , x_4) = \prod{}M(3,5,7,12,13,14) + D(0,4,11,15)
+
+   1. It is unclear without creating a k-map which makes more sense, because there are 4 don't cares \therefore there are 12 cares.
+      Therefore with 6 maxterms there are also 6 minterms.
+
+   2. 
+    |     |  0 0 |  0 1 |  1 1 |  1 0 |
+    |-----+------+------+------+------|
+    | /   |    < |      |      |      |
+    | 0 0 | d(1) | d(1) |    0 |    1 |
+    | 0 1 |    1 |    0 |    0 |    1 |
+    | 1 1 |    0 |    0 | d(0) | d(1) |
+    | 1 0 |    1 |    1 |    0 |    1 |
+
+    *Prime Implicants*
+
+    x_1 x_2' , x_1' x_4' , x_1' x_2' x_3'
+
+    *Essential Prime Implicants*
+
+    x_1 x_2' , x_1' x_4' , x_1' x_2' x_3'
+    
+    *Simplest*
+
+    x_1 x_2' + x_1' x_4' + x_1' x_2' x_3'
+
+   3. 
+    |     |  0 0 |  0 1 |  1 1 |  1 0 |
+    |-----+------+------+------+------|
+    | /   |    < |      |      |      |
+    | 0 0 | d(1) | d(1) |    0 |    1 |
+    | 0 1 |    1 |    0 |    0 |    1 |
+    | 1 1 |    0 |    0 | d(0) | d(1) |
+    | 1 0 |    1 |    1 |    0 |    1 |
+    
+    *Prime Implicants*
+
+    (x_1' + x_2'), (x_2' + x_4'), (x_1 + x_3' + x_4')
+
+    *Essential Prime Implicants*
+
+    (x_1' + x_2'), (x_2' + x_4'), (x_1 + x_3' + x_4')
+
+    *Simplest*
+    
+    (x_1' + x_2')(x_2' + x_4')(x_1 + x_3' + x_4')
+    

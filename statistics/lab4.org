@@ -1,0 +1,61 @@
+#+title: Lab 4
+#+author: Ethan Coe-Renner
+
+1. 
+   1. 
+     #+begin_src R :exports both
+       272 + 9 * qnorm(0.95)
+     #+end_src
+
+     #+RESULTS:
+     : 286.803682642563
+
+     The 95th percentile of pregnancy lengths is about 287 days.
+
+   2. 
+     #+begin_src R :exports both
+       z=(280-272)/9
+       1 - pnorm(z)
+     #+end_src
+
+     #+RESULTS:
+     : 0.187031398745441
+
+     There is about a 19% chance that a pregnancy will last for 280 or more days.
+
+   3. 
+     #+begin_src R :exports both
+       272 + qnorm(0.95) * 9
+     #+end_src
+
+     #+RESULTS:
+     : 286.803682642563
+
+     The cutoff for the upper 5% of pregnancy lengths is 287 days.
+
+   4. 
+     #+begin_src R :exports both
+       pnorm((280-272)/9) - pnorm((270-272)/9)
+     #+end_src
+
+     #+RESULTS:
+     : 0.400898153383616
+
+     There is a 40% probability that a pregnancy will last between 270 and 280 days.
+
+   5. 
+     #+begin_src R :results output :exports both
+       print(qnorm(0.95)* 9 + 270)
+
+       print(qnorm(0.05) * 9 + 270)
+     #+end_src
+
+     #+RESULTS:
+     : [1] 284.8037
+     : [1] 255.1963
+
+     The cutoffs for the middle 90% are (255,285)
+* Images
+[[./Lab4-2.jpeg]]
+[[./Lab4-1.jpeg]]
+     
