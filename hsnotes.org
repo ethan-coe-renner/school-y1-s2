@@ -1,0 +1,28 @@
+#+title: Honors Seminar Notes 2-25
+
+* 4th Industrial Revolution
+- 1st: 1784- mechanical production, railroads, steam power
+- 2nd: 1870- mass production, electrical power, assembly line
+- 3rd: 1969- Automated production, electronics, computers
+- 4th: AI, big data, robotic, etc.
+- carbon dioxide levels increased dramatically since first IR
+
+* 2nd Renaissance
+- explosion of art, tech, etc in 1500-1700s
+- Globalization - 1492-1530s
+- Printing press - 1450
+- first stock market - 1520
+  - instead of states controlling exploration, companies and individuals could
+- these themes are relevant today
+- mass trading
+- banking online
+- blockchain
+  - possible use for contracts
+- IOT
+- Hype cycle
+  - lots of hype initially, things either die or become part of society
+- Neural Networks
+  - artificial NNs used to imitate brains in computers
+- possible changes to higher education
+  - docker-like education system
+  - bundling minors

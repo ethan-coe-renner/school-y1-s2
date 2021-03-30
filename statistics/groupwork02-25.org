@@ -1,0 +1,36 @@
+#+title: Group Work 2-25
+#+author: Ethan Coe-Renner
+
+   #+begin_src R :results output :exports both
+     movies = read.csv("~/school/statistics/pixar_vs_dreamworks.csv")
+     rt=mean(movies$rating_rotten_tomatoes)
+     mc=mean(movies$rating_metacritic)
+
+     sdrt=sd(movies$rating_rotten_tomatoes)
+     sdmc=sd(movies$rating_metacritic)
+
+     sert=sdrt / sqrt(41)
+     semc=sdmc / sqrt(41)
+
+     rtlow=rt - qt(0.95,40) * sert
+     rthigh=rt + qt(0.95,40) * sert
+
+     mclow=mc - qt(0.95,40) * semc
+     mchigh=mc + qt(0.95,40) * semc
+
+     print(rtlow)
+     print(rthigh)
+
+     print(mclow)
+     print(mchigh)
+   #+end_src
+
+   #+RESULTS:
+   : [1] 72.31156
+   : [1] 82.17624
+   : [1] 66.02573
+   : [1] 73.6328
+
+
+   We are 90% confident that the mean rotten tomatoes rating of all Pixar and Dreamworks movies is between 72.33 and 82.15.
+   We are 90% confident that the mean metacritic rating of all Pixar and Dreamworks movies is between 66.04 and 73.6

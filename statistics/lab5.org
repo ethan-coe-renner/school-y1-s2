@@ -1,0 +1,66 @@
+#+title: Lab 4
+#+author: Ethan Coe-Renner
+
+1. What proportion of Pacific students support defunding the police?
+   1. defund_ police
+   2. 
+      #+begin_src R :exports both
+        data = read.csv("~/school/statistics/surveySp2021.csv")
+        sum(data$defund_police == "Defund") / length(data$defund_police)
+      #+end_src
+
+      #+RESULTS:
+      : 0.260869565217391
+
+      sample proportion: 0.26 of students support defunding the police
+   3. 
+      #+begin_src R :results output :exports both
+        data = read.csv("~/school/statistics/surveySp2021.csv")
+
+        p = sum(data$defund_police == "Defund") / length(data$defund_police)
+        se=sqrt(p * (1-p)/115)
+
+        lower=p - se * qnorm(.975)
+        upper=p + se * qnorm(.975)
+
+        print(lower)
+        print(upper)
+      #+end_src
+
+      #+RESULTS:
+      : [1] 0.1806147
+      : [1] 0.3411244
+   4. we can be 95% confident that the proportion of Pacific students who support defunding the police is between 0.18 and 0.34
+2. What was the mean fastest speed of all Pacific students.
+   1. fastest_ speed_ driven
+
+   2. 
+      #+begin_src R :exports both
+        data = read.csv("~/school/statistics/surveySp2021.csv")
+        mean(data$fastest_speed_driven)
+      #+end_src
+
+      #+RESULTS:
+      : 84.3502608695652
+
+   3. 
+      #+begin_src R :results output :exports both
+        data = read.csv("~/school/statistics/surveySp2021.csv")
+        p = mean(data$fastest_speed_driven)
+
+        se=sd(data$fastest_speed_driven)/sqrt(115)
+
+        lower=p - se * qnorm(.975)
+        upper=p + se * qnorm(.975)
+
+        print(lower)
+        print(upper)
+      #+end_src
+
+      #+RESULTS:
+      : [1] 77.9064
+      : [1] 90.79413
+
+   4. we can be 95% certain that the average fastest speed that pacific students have driven is between 77.9 and 90.8 mph
+
+      

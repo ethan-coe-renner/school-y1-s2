@@ -1,0 +1,120 @@
+#+title: Midterm 3
+#+author: Ethan Coe-Renner
+
+1. 
+
+   1. 
+    #+begin_src R :results output
+      sampleProp=121/328
+      t=qt(0.95,327)
+      se=sqrt((sampleProp * (1-sampleProp))/328)
+      high=sampleProp + t * se
+      low=sampleProp - t * se
+
+      print(high)
+      print(low)
+    #+end_src
+
+    #+RESULTS:
+    : [1] 0.4128492
+    : [1] 0.3249557
+
+    90% confidence that the population proportion is between 0.32 and 0.41
+
+   2.
+      #+begin_src R
+        (sqrt(121/328 * (1-121/328))/0.02)^2
+      #+end_src
+
+      #+RESULTS:
+      : 582.033573765616
+
+      we would need a samle of 583 shots to have less than 0.02 margin of error
+
+2. 
+
+    1. We need to use a t distribution because we are given the *sample* standard deviation as opposed to the *population* standard distribution.
+        The confidence interval would be narrower with a normal distribution.
+
+    2. 
+        #+begin_src R :results output
+            p=19.5
+            sd=5.8
+
+            t=qt(0.875,87)
+
+            high=p+sd*t
+            low=p-sd*t
+
+            print(high)
+            print(low)
+       #+end_src
+
+       #+RESULTS:
+       : [1] 26.21687
+       : [1] 12.78313
+
+       75% confidence that the population mean is between 12.7 and 26.2
+
+3. 
+
+   1. H_0: \mu = 7
+
+      H_a: \mu \ne 7 
+
+   2. 
+       #+begin_src R
+         school=read.csv("~/school/statistics/school.csv")
+
+         null = 7
+
+         sd = sd(school$Average.Sleep)
+         mean = mean(school$Average.Sleep)
+
+         t = (mean-null)/sd
+
+         pvalue=2 * (1-pt(t,length(school$Average.Sleep)-1))
+       #+end_src
+
+       #+RESULTS:
+       : 0.37734278450452
+
+   3. I failed to reject the null hypothesis because p-value = 0.37 > 0.01
+
+4. 
+
+   1. H_0: p=0.5
+
+      H_a: p>0.5
+
+   2. 
+       #+begin_src R :results output
+         school = read.csv("~/school/statistics/school.csv")
+         null = 0.5
+
+         se = sqrt((null*(1-null))/length(school$On.campus))
+
+         t=qt(0.95,length(school$On.campus)-1)
+
+         high=null + t * se
+         low=null - t * se
+
+         print(high)
+         print(low)
+       #+end_src
+
+       #+RESULTS:
+       : [1] 0.5813775
+       : [1] 0.4186225
+
+   3.
+      #+begin_src R
+        school = read.csv("~/school/statistics/school.csv")
+
+        mean=sum(school$On.campus == "Yes") / length(school$On.campus)
+      #+end_src
+
+      #+RESULTS:
+      : 0.653846153846154
+
+      0.65 > 0.58 \therefore I reject the null and conclude that significantly more tha n50% of all students lived on campus in 2012.

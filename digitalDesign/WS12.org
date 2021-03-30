@@ -1,0 +1,24 @@
+#+title: Worksheet 12
+#+author: Ethan Coe-Renner
+
+1. 
+    C_1 = g_0 + p_0 C_0
+
+    C_2 = g_1 + p_1 g_0 + p_1 p_0 C_0
+
+    C_3 = g_2 + p_2 C_2
+
+    = g_2 + p_2 (g_1 + p_1 g_0 + p_1 p_0 C_0)
+
+    = g_2 + p_2 g_1 + p_2 p_1 g_0 + p_2 p_1 p_0 C_0
+
+    C_4 = g_3 + p_3 C_3
+
+    = g_3 + p_3 (g_2 + p_2 g_1 + p_2 p_1 g_0 + p_2 p_1 p_0 C_0)
+
+    = g_3 + p_3 g_2 + p_3 p_2 g_1 + p_3 p_2 p_1 g_0 + p_3 p_2 p_1 p_0 C_0
+
+2.
+   [[./Stage2.jpeg]]
+
+   [[./Stage3.jpeg]]

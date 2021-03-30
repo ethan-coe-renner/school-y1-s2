@@ -1,0 +1,15 @@
+#+title: Group Work 02-18
+#+author: Ethan Coe-Renner
+
+   #+begin_src R :exports both
+     p=18/38
+     se=sqrt((p*(1-p))
+             /50)
+     z=(0.5-p)/se
+     1-pnorm(z)
+   #+end_src
+
+   #+RESULTS:
+   : 0.354694057507113
+
+   There is a 35% chance that we win at least half of the 50 independent bets on red.

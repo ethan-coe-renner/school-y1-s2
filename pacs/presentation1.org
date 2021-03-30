@@ -1,0 +1,46 @@
+#+title: Keeping the Competition Out
+#+author: Ethan Coe-Renner
+
+* Introduction
+- consumers love competition
+- Competetors hate competition
+- profits rise if a firm can keep competition out
+- there are many ways firms try to do this
+  
+* Taxicab Medallions
+- NYC number of taxicabs limited to 1 cab for 600 people
+- Every (legal) taxi must have a taxi medallion on the car's hood
+- medallions can be bought and sold by individuals
+- at time of writing 1 medallion cost $600,000, which, of course, doesn't include the taxi itself
+- in 2014 1 medallion cost over $1 million
+
+* How it works
+- Q1: when government reduces the number of firms in an industry, what happens to the supply of the good they produce?
+- supply decreases, meaning the firms can charge a higher price
+- Telephones
+  - before 1984, long and short distance calls were regulated by the federal government.
+  - in 1984, long distance calls were deregulated, resulting in a 40% drop in inflation adjusted rates, while local phone rates rose by 40%
+  
+* Ridesharing
+- Uber and lyft have cut into the (artificial) monopoly taxicabs had in NYC and elsewhere
+- since the two companies began operating, taxicab medallions have depreciated in value by 40%
+- also, it is much easier to get around in NYC
+- this illustrates the point that government intervention in the economy, at least when used to stifle competition, is harmful to consumers
+
+* Occupational Licensing
+- today (as of writing), over 11 hundred occupations require a license in at least one state
+  - secretaries (Georgia)
+  - wallpaper hangers (California)
+  - 30% of the workforce
+- Other examples
+  - number of law schools (except in california) is capped by law
+  - Real estate agents have to be licensed, and they are prevented from lowering prices even if they provide less services (12 states)
+    - US real estate commission is 5.1%, in other countries average is 3.6%
+  - these help current lawyers and real estate agents, but hurt their customers
+  
+* Hair Braiding Licenses
+- Braiding salons are a threat to conventional beauty salons as they can provide similar services more cheaply
+- agents of the California Barbering and Cosmetology Board raid salons of unlicensed hair braiders
+- cosmetology school costs $6000 and 1600 hours of training (more than to become a police or medical technician in many states, 664 hours in CA (cnn))
+  - In Utah, cost is $16000 and 2000 hours
+  - none of the schools teach hair braiding

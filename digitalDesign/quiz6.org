@@ -1,0 +1,40 @@
+#+title: Quiz 6
+#+author: Ethan Coe-Renner
+
+1. 
+  11000010_2 -> 00111101 + 1 = 00111110
+    |   |   | 1 | 1 | 1 | 1 |   |   |   |
+    |   | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 |
+    | + | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 0 |
+    |---+---+---+---+---+---+---+---+---|
+    |   | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 1 |
+
+2. 100101: sign: 1, magnitude: 00101
+
+   magnitude: 1 + 4 = 5 \therefore *-5*
+
+3. -19_10 to 6 bit twos complement
+
+   19 / 2 = 9r1
+
+   9/2 = 4r1
+
+   4/2 = 2r0
+
+   2/2 = 1r0
+
+   1/2 = 0r1
+
+   010011, because negative = 101100 + 1 = *101101*
+
+4. 
+    |   | 1 |   | 1 |   |   |   |
+    |   | 1 | 1 | 0 | 1 | 0 | 1 |
+    | + | 1 | 1 | 0 | 1 | 1 | 0 |
+    |---+---+---+---+---+---+---|
+    | 1 | 1 | 0 | 1 | 0 | 1 | 1 |
+
+    result: *1101011*
+
+    overflow: no, negative + negative resulted in a negative \therefore no overflow
+     

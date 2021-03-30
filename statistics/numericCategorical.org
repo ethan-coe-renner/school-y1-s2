@@ -1,0 +1,40 @@
+#+title: Numeric/Categorical Mean Tests
+
+* Types of 2 mean tests
+
+* Numeric/Categorical
+#+begin_src R :results output graphics file :file riskvsspeed.png :exports both
+  library(ggplot2)
+  survey = read.csv("./surveySp2021.csv")
+  ggplot(survey,aes(x=level_of_risk_taking,y=fastest_speed_driven))+geom_boxplot(fill="orange",color="black",width=0.5)
+#+end_src
+
+#+RESULTS:
+[[file:riskvsspeed.png]]
+
+#+begin_src R :results output
+  survey = read.csv("./surveySp2021.csv")
+  tapply(survey$fastest_speed_driven,survey$level_of_risk_taking,summary)
+#+end_src
+
+#+RESULTS:
+: $`High Risk Taker`
+:    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+:    0.00   82.50   95.00   95.44  110.00  200.00 
+: 
+: $`Low Risk Taker`
+:    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+:    0.00   68.75   80.00   72.67   90.00  148.00 
+: 
+
+* Hypothesis testing with 2 means
+The null hypothesis is no relationship.
+
+H_0:\mu_1=\mu_2
+
+Alternative hypothesis can be either
+H_a:\mu_1>\mu_2
+
+H_a:\mu_1<\mu_2
+
+H_a:\mu_1\ne\mu_2

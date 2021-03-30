@@ -1,0 +1,25 @@
+#+title: HW 7
+#+author: Ethan Coe-Renner
+
+1. 
+   1. 
+      CRA stage 5 cost: 74
+
+      CLA stage 5 cost: 5^2+9(5)+72=142
+
+   2. CRA 12 stage delay: 2(12) + 1 = 25\Delta{}t
+
+      CLA 12 stage delay: 6\Delta{}t
+
+   3. 10 stage CRA total cost: 74(10) = 740
+
+      10 stage CLA total cost: $\frac{1}{3}(9)^3+5(9)^2+\frac{230}{3}(9)+72 = 1410$
+
+2. Cost: 2 AND, 1 OR, 2 XOR (all two input) \therefore cost = 2(2(2) + 1) + 2(2) + 1 + 2(XOR_cost) = 15 + 2(XOR_cost)
+   
+   XOR = 2 AND, 1 OR, 2 NOT \therefore 2 * XOR_cost = 2 * (2(2(2) + 1) + 2(2) + 1 + 4)
+   \therefore total cost = 15 + 2(19) = 53
+
+   critical path x_i -> XOR -> AND -> OR -> c_{i+1} = x_i -> NOT -> AND -> AND -> AND -> OR -> c_{i+1} \therefore delay = 5\Delta{}t
+      
+      

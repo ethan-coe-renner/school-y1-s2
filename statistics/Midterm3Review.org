@@ -1,0 +1,52 @@
+#+title: Midterm 3 Review
+
+* Module 4: Confidence Intervals for Proportions and Means
+pnorm(z) gives the area to the left of the z value in the cdf function
+
+qnorm(p) gives the z value with p area to the left in the cdf function
+
+$z=\frac{value-mean}{SD}$
+
+| Statistic | Sample Proportion: $\hat{p}$ | Sample mean \overline{X}      |
+|-----------+----------------------------+---------------------------|
+| EV        | p                          | \mu                       |
+| SE        | $\sqrt{\frac{p(1-p)}{n}}$  | $\frac{\sigma}{\sqrt{n}}$ |
+
+** Ex: Netflix
+In a random sample of 200 netflix offerings, 61 were shows.
+find a 95% confidence interval for the proportion of all netflix offerings which are movies.
+
+Goal: Unknown population parameter: p=prop of shows
+
+Estimate of sample proportion: $\hat{p} = \frac{61}{200} \approx 0.31$
+
+both tail areas outside of interval wil be 0.025, $z=qnorm(0.976) \approx 1.96$
+
+$CI= \hat{p} \pm z SE$
+
+** Means Ex
+the sample mean length of a random sample of 100 netflix movies was 102 minutes with a sample sd of 27 minutes.
+Compute a 90% confidence interval for the mean length of all netflix movies
+
+Goal: unknown population parameter \mu = mean length of all netflix movies
+
+estimate w/ sample mean of \overline{x}=102
+
+use t distribution because of sample sd
+
+t=qt(0.95,100-1)
+
+interval: \overline{x} \pm t*SE
+
+$SE = \frac{s}{\sqrt{n}} = \frac{27}{100}$
+
+** hypothesis means test
+find if te mean length of netflix movies is significantly different from 1.5 hrs (\alpha=0.1)
+
+H_0: \mu = 90, H_a: \mu \ne 90
+
+*Rejection Region Approach*
+
+t=qt(0.95,100-1)
+
+$\frac{\overline{x}-90}{SE} = t$

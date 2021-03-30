@@ -1,0 +1,60 @@
+#+title: Hypothesis Testing
+#+author: Ethan Coe-Renner
+
+* Presumption of Innocence
+Useful to think of hypothesis testing like a trial.
+defendents are presumed to be innocent until proven guilty.
+
+In statistics, assume nothing is unusual (H_0 or null hypothesis),
+collect evidence, either refute (H_a or alternate hypothesis) or fail to refute null hypothesis
+by checking if evidence is consistent with the null hypothesis.
+
+* Null Hypothesis
+H_0 will take form here that population parameter = hypothesised value (null value)
+ex H_0:\mu=4.2%
+
+H_a can take three forms: 
+- population parameter \neq null value (two sided alternative)
+- population parameter < null value (lower tailed alternative)
+- population parameter > null value (upper tailed alternative)
+
+choice depends on problem wording, or goal of study
+
+*Hypothesis should _not_ depend on the sample*
+
+* False Positives and False Negatives
+A false positive occurs when a test gives a positive result when the truth is negative (type 1 error)
+The probability of a type one error is \alpha
+
+A false negative is the reverse, test returns negative when truth is positive (type 2 error)
+probability = \beta
+
+* Rejection Region Approach
+1. define acceptable type 1 error rate: \alpha = 0.05
+2. identify a sample statistic to use: test for proportion -> use sample proportion
+3. find appropriate rejection region R: choose P_0 in sample proportion distribution and region around such that Atail areas combine to be \alpha
+4. determine if sample statistic is in R
+**  Ex Belgian euro tossing
+H_0: p=0.5, H_a: p > 0.5, p = probability of heads
+
+1. rejection region: P_0 = 0.5,
+   to find critical value P_c, find z_c = qnorm(0.95) = 1.64
+
+   1.64 = \frac{P_c - 0.5}{SE}
+
+   SE = \sqrt{\frac{0.5(1-0.5)}{250}}
+
+   P_c = 0.55
+
+   regection region p hat > 0.55
+
+2. suppose 140/250 heads, what is te decision
+
+   140/150 = 0.56 > 0.55, conclude we can reject H_0
+
+** P-value approach
+assuming that p = 0.5 (null is true), what is the probability of getting 140 or more heads in 250 tosses.
+
+z = \frac{0.56-0.5}{SE=0.0316} = 1.9
+
+p-value = 1-pnorm(1.9) = 0.028, reject null if this < \alpha

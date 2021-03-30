@@ -1,0 +1,31 @@
+#+title:Group Work 03-23
+#+author: Ethan Coe-Renner
+
+1. 
+    #+begin_src R :results output graphics file :file unemployedvselection.png :exports both
+      library(ggplot2)
+      election = read.csv("./election2016.csv")
+      ggplot(election,aes(x=outcome,y=unemployed))+geom_boxplot(
+                                                     fill="orange",color="black",width=0.5)
+    #+end_src
+
+    #+RESULTS:
+    [[file:unemployedvselection.png]]
+
+2. 
+
+    #+begin_src R :results output :exports both
+      election = read.csv("./election2016.csv")
+      print(tapply(election$unemployed,election$outcome,sd))
+      print(tapply(election$unemployed,election$outcome,mean))
+    #+end_src
+
+    #+RESULTS:
+    :       Blue        Red 
+    : 0.01010198 0.01093870 
+    :    Blue     Red 
+    : 0.04955 0.04900 
+
+3. H_0: there is no correlation between unemployment in a state and whether that state voted blue or red.
+   H_a: States with higher unempleyment voted disproportionately for red
+    

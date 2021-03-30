@@ -1,0 +1,152 @@
+#+title: Midterm 2
+#+author: Ethan Coe-Renner
+
+1. 
+   1. $\frac{1}{5}*\frac{4}{5} * 2 = \frac{8}{25} = 0.32$
+   2. $\frac{1}{5} * (\frac{1}{5} + \frac{4}{5}) + \frac{4}{5} * \frac{1}{5} = \frac{9}{25} = 0.36$
+   3. 
+    #+begin_src R :exports both
+      values=c(1,0)
+      probs=c(1/5,4/5)
+
+      propWins=replicate(1000,sum(sample(values,2,probs,replace=TRUE)))
+      sum(propWins>=1)/1000
+    #+end_src
+
+    #+RESULTS:
+    : 0.359
+
+    Yes, the result from the r code is very close to 0.36.
+2. 
+   1. 
+      .
+        |  X | p              |
+        |----+----------------|
+        | -1 | $\frac{1}{2}$  |
+        |  1 | $\frac{1}{12}$ |
+        |  2 | $\frac{1}{12}$ |
+        |  3 | $\frac{1}{12}$ |
+        |  4 | $\frac{1}{12}$ |
+        |  5 | $\frac{1}{12}$ |
+        |  6 | $\frac{1}{12}$ |
+
+   2. 
+       #+begin_src R :results output :exports both
+         ev=-1*1/2 + (1+2+3+4+5+6) * 1/12
+
+         sd=sqrt(((-1-ev)^2+(1-ev)^2+(2-ev)^2+(3-ev)^2+(4-ev)^2+(5-ev)^2+(6-ev)^2)/
+                 8)
+
+         print(ev)
+         print(sd)
+       #+end_src
+
+       #+RESULTS:
+       : [1] 1.25
+       : [1] 2.572389
+
+       the expected value is 1.25 and the standard deviation is 2.57
+
+   3. 
+    #+begin_src R :results output :exports both
+      values=c(-1,1,2,3,4,5,6)
+      probs=c(1/2,1/12,1/12,1/12,1/12,1/12,1/12)
+
+      propWins=replicate(1000,sample(values,1,probs,replace=TRUE))
+      print(mean(propWins))
+      print(sd(propWins))
+    #+end_src
+
+    #+RESULTS:
+    : [1] 1.273
+    : [1] 2.586728
+
+    the answers are close to my calculations
+
+3. 
+   1. 
+     #+begin_src R :exports both
+       qnorm(0.8) * 6.7 + 43
+     #+end_src
+
+     #+RESULTS:
+     : 48.6388622649385
+
+   2. 
+     #+begin_src R :results output :exports both
+       print(qnorm(0.1) * 6.7 + 43)
+       print(qnorm(0.9) * 6.7 + 43)
+     #+end_src
+
+     #+RESULTS:
+     : [1] 34.4136
+     : [1] 51.5864
+
+     cutoffs at 34.4-51.6
+
+   3. 
+     #+begin_src R :exports both
+       z1=(40-43)/6.7
+       z2=(50-43)/6.7
+       pnorm(z2)-pnorm(z1)
+     #+end_src
+
+     #+RESULTS:
+     : 0.524773996522216
+
+     52%
+
+4. 
+   1. 
+       EV of sample mean = mean score of one = 43
+
+       Standard error = $\frac{43}{\sqrt{25}} = \frac{43}{5} = 1.72$
+
+   2. 
+     #+begin_src R :results output :exports both
+       print(qnorm(0.1) * 1.72 + 43)
+       print(qnorm(0.9) * 1.72 + 43)
+     #+end_src
+
+     #+RESULTS:
+     : [1] 40.79573
+     : [1] 45.20427
+
+     cutoffs at 40.8-45.2
+
+   3. 
+     #+begin_src R :exports both
+       z1=(40-43)/1.72
+       z2=(50-43)/1.72
+       pnorm(z2)-pnorm(z1)
+     #+end_src
+
+     #+RESULTS:
+     : 0.959413143136779
+
+     95%
+
+5. 
+
+   1. One of the difficult things for me was in the simulations in r (lab 3) making sure that all the pieces were correct.
+      In particular, there are 3-4 things that can change based on the wording of the question.
+      One thing that tripped me up on part b of question 2 in lab 3 was that the result of my simulations seemed pretty far from my calculations.
+      One thing I tried was increasing the number of replications to get a more precise answer, this got me close enough and without a lot of variance.
+      Upon closer inspection now it seems that it was just because the result was close to 0.3, so many of the simulations ended up with 0.2**, which seemed farther than it actually is.
+
+   2. Use a simulation to determine the mean sum of a random sample of 2 employees at the advertising firm.
+      
+    #+begin_src R :results output :exports both
+      values=c(60,80,100)
+      probs=c(3/7,1/7,3/7)
+
+      propWins=replicate(1000,sum(sample(values,2,probs,replace=TRUE)))
+      mean(propWins)
+    #+end_src
+
+    #+RESULTS:
+    : [1] 159.44
+
+    The mean sum of two random employees is about 160, which matches up with 2 * Expected Value because the Expected value is $\frac{3}{7} * 60 + \frac{1}{7} * 80 + \frac{3}{7} * 100 = 80$
+      
+   

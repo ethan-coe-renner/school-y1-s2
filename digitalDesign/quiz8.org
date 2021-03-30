@@ -1,0 +1,62 @@
+
+1. 
+    f(a,b,c) = \sum{}m(1,4,5,6)
+
+    | a | b | c | f |
+    |---+---+---+---|
+    | 0 | 0 | 0 | 0 |
+    | 0 | 0 | 1 | 1 |
+    | 0 | 1 | 0 | 0 |
+    | 0 | 1 | 1 | 0 |
+    | 1 | 0 | 0 | 1 |
+    | 1 | 0 | 1 | 1 |
+    | 1 | 1 | 0 | 1 |
+    | 1 | 1 | 1 | 0 |
+
+    [[./Q8-1.jpeg]]
+
+2. f(a,b,c,d) = \sum{}m(1,4,5,7,9)
+   | a | b | c | d | f |
+   |---+---+---+---+---|
+   | 0 | 0 | 0 | 0 | 0 |
+   | 0 | 0 | 0 | 1 | 1 |
+   | 0 | 0 | 1 | 0 | 0 |
+   | 0 | 0 | 1 | 1 | 0 |
+   | 0 | 1 | 0 | 0 | 1 |
+   | 0 | 1 | 0 | 1 | 1 |
+   | 0 | 1 | 1 | 0 | 0 |
+   | 0 | 1 | 1 | 1 | 1 |
+   | 1 | 0 | 0 | 0 | 0 |
+   | 1 | 0 | 0 | 1 | 1 |
+   | 1 | 0 | 1 | 0 | 0 |
+   | 1 | 0 | 1 | 1 | 0 |
+   | 1 | 1 | 0 | 0 | 0 |
+   | 1 | 1 | 0 | 1 | 0 |
+   | 1 | 1 | 1 | 0 | 0 |
+   | 1 | 1 | 1 | 1 | 0 |
+
+   4:1 mux, b,c selects
+
+   f =
+
+   b'c'(a'd'0 + a'd1 + ad'0 + ad1)
+
+   b'c(a'd'0 + a'd0 + ad'0 + ad0)
+
+   bc'(a'd'1 + a'd1 + ad'1 + ad0)
+
+   bc(a'd'0 + a'd1 + ad'0 + ad0)
+
+   = b'c'(a'd) + b'c(0) + bc'(d') + bc(a'd)
+
+   [[./Q8-2.jpeg]]
+
+3. 
+
+   1. cost of mux: 2 NOT, 4 AND(2 in), 1 OR(4 in) = 2(2) + 4(2(2) + 2) + 2(4) + 2 = 38
+
+   path delay = 3 (NOT, AND, OR)\Delta{}t
+
+   1. I would expect the cost to increase because the number of gates increases.
+      However the critical delay will stay the same because the longest path is the same regardless of the size of the mux.
+   

@@ -1,0 +1,37 @@
+#+title: Groupwork 02-23
+#+author: Ethan Coe-Renner
+
+1. 
+    #+begin_src R :exports both :results output
+      z=qnorm(0.99)
+
+      upper=0.46+z*sqrt((0.46 * (1-0.46))/1025)
+      lower=0.46-z*sqrt((0.46 * (1-0.46))/1025)
+
+      print(upper)
+      print(lower)
+
+    #+end_src
+
+    #+RESULTS:
+    : [1] 0.496215
+    : [1] 0.423785
+
+2. 
+    The width will shrink compared to part 1 because the critical z-score will decrease.
+
+3.
+
+   $0.02 = \frac{qnorm(0.99)}{2\sqrt(n)}$
+    #+begin_src R :exports both :results output
+      z=qnorm(0.99)
+
+      (z/(2 * 0.02)) ^ 2
+    #+end_src
+
+    #+RESULTS:
+    : [1] 3382.434
+
+    you would need to survey 3382 people
+   
+   

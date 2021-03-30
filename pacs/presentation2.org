@@ -1,0 +1,61 @@
+#+title: Why Should Suicide Bombers Buy Life Insurance
+#+author: Ethan Coe-Renner
+
+Rule: ask questions at the end.
+
+The chapter covers a lot of ground, the common thread through it all is an exploration of using data to make predictions.
+
+* Disabilities
+- People born in Uganda and Michigan in May have higher rates of disabilities than those born other months.
+- At 20% difference, this is too large a discrepency to be coincidental, and it turns out that the common factor is Islam
+- both uganda and michigan have sizable muslim populations, and Muslims fast during the day for Ramadan
+- Women who fast when pregnant can cause birth complications for their babies, resulting in a this effect
+* Sports
+- in the british national youth leagues, half of all players were born between January and march. this pattern continues in many other sports
+- The cause is that youth sports leagues have cutoff dates, and so people born earlier in the year will be the older children in their group.
+  Therefore they are more likely to be picked to play and they get more practice.
+* Terrorists
+- one might expect terrorists to come from poor families and to be poorly educated.
+  This might be supposed because poor people tend to be overrepresented as criminals, and terrorists are a class of criminal.
+- However, biographical records show that most terrorists come from non-poor families and have at least a high schoool education, compared to the population
+- This trend even applies to the 9/11 terrorists.
+- Why might this be the case?
+  1. hungry people have better things to do.
+  2. terrorist attacks require more competence than typical criminal activity
+  3. "crime is driven by personal gain, whereas terrorism is a political act."
+     the kind of person to commit a terrorist attack is similar to the kind op person likely to vote
+Levit then turns to talk about terrorism in general. he tells the story of a pair of terrorists who, by shooting people from their pickup truck, caused a city to shut down schools, events, even cause lockdowns.
+Terrorisms effectiveness comes from the fact that it imposes costs on everyone, not just its victims.
+consider the collateral damage of the 9/11 attacks: wars, people driving rather than flying, survaillence
+
+* Terrorism, again
+Levitt now turns back to terrorism to answer the title's question
+
+the problem with stopping terrorism is that there are so many targets and methods, it is virtually impossible to act to prevent all of them
+
+fortunately, there are not many terrorists: givent the ease of carrying out a terrorist attack and the scarcity of them
+
+Therefore te solution should be to find this small group of terrorists.
+
+Ian Horseley, who works for a bank, developed an algorithm that predicts people's likelyness to be a terrorist based on their financial habits
+
+some of the factors he found
+terrorists disproportionately likely to have 
+- muslim names
+- own mobile phone
+- rent, rather than own a home
+
+no effect:
+- marital status
+- employment status
+- proximity to a mosque
+
+unlikely to
+- have savings account
+- withdraw money on a friday afternoon
+- buy life insurance
+
+the logic of the title is that a terrorist could buy life insurance in order to fool the people trying to track down terrorists, not because they will actually use it
+
+* Paper
+The paper I found analyzes what is done once a country has identified terrorists. It compares deterrance and preemptive action, specifically looking at the externality costs of each.

@@ -1,0 +1,47 @@
+#+title: Extreme Poverty Affects Quality of Life (But Not Always as Badly as Western Media Portray)
+#+author: Ethan Coe-Renner
+
+All the news in western media about Uganda is bad.
+
+All news Ugandans get about US is bad (mass shootings)
+
+* Health Consequences of Indoor Cooking in Uganda
+Lots of cooking occurs indoors with charcoal, creates lots of smoke.
+
+Causes lots of deaths every year.
+** Data and Empirical Model
+Ugandan National Household Survey 2005-06
+
+7,096 households
+
+Health indicator: number of days in the past 30 in which the sickest occupant reports being ill: mean of 10.9, sd of 9.5
+
+of all the questions asked on the survey, cooking with bad fuel had the greatest effect on the health of inhabitants
+
+*indoor burning for cooking and lighting is really bad for health*
+
+* Undernourishment of Kids in Uganda
+Stunting: inadequate hieght for age, 2 standard deviations below the mean height for age from WHO sample
+
+Wasting: inadequate weight for age, 2 standard deviations below the mean weight for age from WHO sample
+
+however, there are a lot of kids in uganda who are not undernourished
+
+Uganda is not food insecure (only 6% of househelds are food insecure)
+
+dietary diversity is the problem, zinc is the most important, too much of their diet is staple foods,
+
+24% of ugandan children have a minimally diverse diet.
+
+** Data
+trying to explain stunting and wasting based on staple consumption
+
+found that there is a significant relationship between staple consumption and stunting/wasting
+
+Staple foods: banana, millet, etc
+
+these staple foods are cultural and cheap
+
+43% of household income (average) spent on staple foods
+* Good news from the world bank
+global poverty is decreasing, has been since the 90s
