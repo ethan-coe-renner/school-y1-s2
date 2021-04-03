@@ -1,0 +1,158 @@
+#+title: Testing Two Means
+#+author: Ethan Coe-Renner
+
+two means t-tests
+
+equal vs unequal variance t-tests,
+use equal if sample SDs for groups are close ($\frac{s_1}{s_2}>\frac{1}{2}$)
+
+* Did red and blue states significantly differ in average income?
+
+grouping variable: outcome
+
+numeric variable: average income
+
+H_0: \mu_R = \mu_B, where \mu_R, \mu_b are the mean median income for red, blue states
+
+H_a: \mu_R \ne \mu_B
+
+#+begin_src R :exports both :results output
+  election=read.csv("~/school/statistics/election2016.csv")
+
+  tapply(election$median.income,election$outcome,sd)
+
+  #t.test(numeric~grouping, data, set false for unequal variance)
+  t.test(median.income~outcome, data=election,var.equal=TRUE)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+    Blue      Red 
+7884.784 7277.913 
+
+	Two Sample t-test
+
+data:  median.income by outcome
+t = 4.881, df = 48, p-value = 1.207e-05
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  6234.442 14968.592
+sample estimates:
+mean in group Blue  mean in group Red 
+          61323.45           50721.93 
+
+#+end_example
+
+Reject H_0, there is a significantly difference in median income between red and blue states
+
+* Did red and blue states significantly differ in average whiteness?
+#+begin_src R :exports both :results output
+  election=read.csv("~/school/statistics/election2016.csv")
+
+  tapply(election$non.white,election$outcome,sd)
+
+  t.test(non.white~outcome, data=election,var.equal=TRUE)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+     Blue       Red 
+0.1896888 0.1306570 
+
+	Two Sample t-test
+
+data:  non.white by outcome
+t = 1.809, df = 48, p-value = 0.07672
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.009121876  0.172788543
+sample estimates:
+mean in group Blue  mean in group Red 
+         0.3585000          0.2766667 
+
+#+end_example
+
+* Was there a rise in reported hate crimes after the election?
+
+H_0: \mu_{pre} = \mu_{post}, \mu_{pre}, \mu_post are mean annual rates of hate crimes pre, post election
+
+H_a: \mu_{pre} < \mu{post}
+
+#+begin_src R :exports both :results output
+  election=read.csv("~/school/statistics/election2016.csv")
+
+  tapply(election$non.white,election$outcome,sd)
+
+  t.test(36.5*election$post_hate.crimes,election$pre_hate.crimes,paired=TRUE)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+     Blue       Red 
+0.1896888 0.1306570 
+
+	Paired t-test
+
+data:  36.5 * election$post_hate.crimes and election$pre_hate.crimes
+t = 8.9675, df = 45, p-value = 1.408e-11
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 6.186182 9.769907
+sample estimates:
+mean of the differences 
+               7.978045 
+
+#+end_example
+
+p-value < 0.05, there was a significant rise in hate crimes after the election
+
+* Pearl and Eben toss a fair coin, 1 point for heads, 0 for tails.
+
+Y = X_P - X_E
+
+| X_P | X_E |  Y | Prob          |
+|-----+-----+----+---------------|
+|   1 |   1 |  0 | $\frac{1}{4}$ |
+|   1 |   0 |  1 | $\frac{1}{4}$ |
+|   0 |   1 | -1 | $\frac{1}{4}$ |
+|   0 |   0 |  0 | $\frac{1}{4}$ |
+
+EV of Y = 0(1/2) + 1(1/4) + (-1)(1/4)
+
+SD of Y = \sqrt{(0-0)^2 * 1/2 + (1-0)^2*1/4 + (-1-0)^2*1/4}
+
+SD(X_1-X_2) = \sqrt(\sigma_1^2+\sigma_2^2)
+
+* Formulas for the SE of X_1 bar - X_2 bar
+\frac{\sigma_1}{\sqrt{n_1}} = SE of X_1
+
+same thing for X_2
+
+plug into 
+SD(X_1-X_2) = \sqrt(\sigma_1^2+\sigma_2^2)
+as \sigma_1 and \sigma_2 to get SE of difference
+
+SE = \sigma\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+
+Pooled SD = $\sqrt{\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{df_1+df_2}}$
+
+df = degrees of freedom
+
+* Ex calculate Pooled standard deviation, Equal variance standard error, and unequal variance standard error
+
+| outcome | sample size |     mean |       sd |
+|---------+-------------+----------+----------|
+| Blue    |          20 | 61323.45 | 7884.784 |
+| Red     |          30 | 50721.93 | 7277.913 |
+
+S_p (pooled sd) = \sqrt{\frac{19(7884)^2+29(7278)^2}{19+29}} = 7523
+
+S_p should be between the two sds
+
+SE_equal = 7523\sqrt{\frac{1}{20}+\frac{1}{30}} = 2171
+
+SE_equal should be less than the sds and S_p
+
+SE_unequal = \sqrt{\frac{7884^2}{20}+\frac{7277^2}{30}} = 2207
+
+SE_unequal should be close to SE_equal

@@ -1,0 +1,18 @@
+#+title: Quiz 10
+#+author: Ethan Coe-Renner
+
+1. 
+   [[./Q10.jpeg]]
+2. 
+   1. 
+       | Clk | D | Q(t+1) |
+       |-----+---+--------|
+       |   0 | d | Q(t)   |
+       |   1 | 0 | 0      |
+       |   1 | 1 | 1      |
+   2. 1 NOT, 2 (2 input AND), 2 (2 input) NOR = 2 + 2(2(2)+2) + 2(2(2)) = 22
+   3. 4\Delta{}t
+   4. Level sensitive, latches are level sensitive
+
+      
+      

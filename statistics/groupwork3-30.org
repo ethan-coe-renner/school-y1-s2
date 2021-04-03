@@ -1,0 +1,62 @@
+#+title:Group Work 3-30
+#+author: Ethan Coe-Renner
+
+1. 
+   H_0: \mu{pixar_budget} = \mu{dreamworks_budget}
+   
+   H_a: \mu{pixar_budget} \ne \mu{dreamworks_budget}
+
+    #+begin_src R :exports both :results output
+      movies=read.csv("~/school/statistics/pixar_vs_dreamworks.csv")
+
+      tapply(movies$budget_million_usd,movies$studio,sd)
+
+      t.test(budget_million_usd~studio, data=movies,var.equal=TRUE)
+    #+end_src
+
+    #+RESULTS:
+    #+begin_example
+    DreamWorks      Pixar 
+      42.47315   52.76159 
+
+            Two Sample t-test
+
+    data:  budget_million_usd by studio
+    t = -1.422, df = 39, p-value = 0.163
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+     -52.364900   9.132095
+    sample estimates:
+    mean in group DreamWorks      mean in group Pixar 
+                    117.7407                 139.3571 
+
+    #+end_example
+
+    p-value=0.16 > 0.05, therefore we fail to reject the null hypothesis and conclude that there is  no significant difference in budget between pixar and dreamworks.
+
+2. 
+
+    #+begin_src R :exports both :results output
+      pixar_vs_dreamworks=read.csv("~/school/statistics/pixar_vs_dreamworks.csv")
+
+      t.test(pixar_vs_dreamworks$rating_rotten_tomatoes,
+             pixar_vs_dreamworks$rating_metacritic,paired = TRUE)
+    #+end_src
+
+    #+RESULTS:
+    #+begin_example
+
+            Paired t-test
+
+    data:  pixar_vs_dreamworks$rating_rotten_tomatoes and pixar_vs_dreamworks$rating_metacritic
+    t = 4.8917, df = 40, p-value = 1.671e-05
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+      4.351167 10.478101
+    sample estimates:
+    mean of the differences 
+                   7.414634 
+
+    #+end_example
+
+    p-value < 0.05, therefore there is a significant difference between the rotten tomatoes and metacritic ratings
