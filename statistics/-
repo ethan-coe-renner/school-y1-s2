@@ -1,0 +1,227 @@
+#+title: Midterm 4
+#+author: Ethan Coe-Renner
+
+1. 
+    H_0: \mu_{referential looks male} = \mu_{referential looks female}
+
+    H_a: \mu_{referential looks male} \ne \mu_{referential looks female}
+
+    #+begin_src R :exports both
+      sPooled=sqrt((35*2.16^2+35*2.65^2)/(35+35))
+      SeEqual=sPooled*sqrt(1/35+1/35)
+      t= (2.16-3.42)/SeEqual
+      pt(t,70)
+    #+end_src
+
+    #+RESULTS:
+    : 0.0162965184255123
+
+    p-value = 0.016 < 0.05 \therefore I reject the null hypothesis and conclude that the mean referential looks between genders are not equal
+
+2. chi square goodness of fit
+
+   H_0: the frequencies of the numbers are the same
+
+   H_a: the frequencies of the numbers are different
+
+   #+begin_src R :exports both
+     exp=rep(1/6 * 30,6)
+     obs=c(5,4,4,5,5,7)
+
+     chisq=sum((obs-exp)^2/exp)
+
+     df=6-1
+
+     1-pchisq(chisq,df)
+   #+end_src
+
+   #+RESULTS:
+   : 0.944877365002122
+
+   with a p-value of 0.94 > 0.1, I fail to reject the null hypothesis and conclude that the roullette wheel is generating numbers with equal likelyhood.
+
+   [[./chisqdist.png]]
+
+3. Chi square independence
+
+   H_0: visual impairment and race/ethnicity are independent
+
+   H_a: visual impairment and race/ethnicity are dependent
+
+   | observed           | Asian | Hispanic | White | Total |
+   |--------------------+-------+----------+-------+-------|
+   | Not at all         |    21 |       15 |    31 |    67 |
+   | Partial impairment |     8 |        9 |    20 |    37 |
+   | severe impairment  |    23 |        5 |    10 |    38 |
+   |--------------------+-------+----------+-------+-------|
+   | Total              |    52 |       29 |    61 |   142 |
+   
+   | expected           | Asian          | Hispanic       | White           | Total |
+   |--------------------+----------------+----------------+-----------------+-------|
+   | Not at all         | 52*67/142=24.5 | 29*67/142=13.7 | 61*67/142=28.8  |    67 |
+   | Partial impairment | 52*37/142=13.5 | 29*37/142=7.6  | 61*37/142=15.9  |    37 |
+   | severe impairment  | 52*38/142=13.9 | 29*38/142=7.8  | 61*38/142=16.32 |    38 |
+   |--------------------+----------------+----------------+-----------------+-------|
+   | Total              | 52             | 29             | 61              |   142 |
+
+   #+begin_src R :exports both
+     # single cell calculation
+     (21-24.5)/24.5
+   #+end_src
+
+   #+RESULTS:
+   : -0.142857142857143
+
+   #+begin_src R :exports both
+     obs=c(21,15,31,8,9,20,23,5,10)
+     exp=c(24.5,13.7,28.8,13.5,7.6,15.9,13.9,7.8,16.32)
+
+     chisq=sum((obs-exp)^2/exp)
+
+     df=(3-1) * (2-1)
+
+     1-pchisq(chisq,df)
+   #+end_src
+
+   #+RESULTS:
+   : 0.00102947401516296
+
+    p-value = 0.001 < 0.01 \therefore I reject the null and conclude that visual impairment and ethnicity are dependent.
+
+4. ANOVA
+
+   1. 
+       #+begin_src R :results output graphics file :file anime.png :exports both
+         library(ggplot2)
+         anime=read.csv("./anime.csv")
+
+         ggplot(anime, aes(x=genre,y=score))+ geom_boxplot()
+       #+end_src
+
+       #+RESULTS:
+       [[file:anime.png]]
+
+   2. 
+       H_0: there is no significant difference in mean scores between the five genres
+
+       H_a: there is a significant difference in mean scores between the five genres
+      
+       #+begin_src R :results output :exports both
+       anime = read.csv("./anime.csv")
+       summary(aov(score~genre,data=anime))
+       #+end_src
+
+       #+RESULTS:
+       :             Df Sum Sq Mean Sq F value  Pr(>F)   
+       : genre        4  12.88   3.220   3.547 0.00965 **
+       : Residuals   95  86.26   0.908                   
+       : ---
+       : Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+      #+begin_src R :exports both
+          1-pf(3.547,5-1,100-5)
+      #+end_src
+
+      #+RESULTS:
+      : 0.0096430689106537
+
+      p-value = 0.009 < 0.05 \therefore I reject the null and conclude that there is a significant difference in mean scores between the five genres
+
+   3. 
+
+       calculate sample sizes and sample sds
+       #+begin_src R :results output :exports both
+         anime=read.csv("./anime.csv")
+         table(anime$genre)
+         tapply(anime$score, anime$genre,sd)
+       #+end_src
+
+       #+RESULTS:
+       : 
+       : Action Comedy  Drama   Kids Sci-Fi 
+       :     20     41     14     12     13 
+       :    Action    Comedy     Drama      Kids    Sci-Fi 
+       : 0.9809355 0.9524655 0.7215551 1.1402977 0.9406040 
+
+       calculate mean square error
+       #+begin_src R :exports both
+         size = c(20,41,14,12,13)
+         sd=c(0.98,0.95,0.72,1.14,0.94)
+         sse=sum((size-1) * sd^2)
+         sse/95
+       #+end_src
+
+       #+RESULTS:
+       : 0.905111578947368
+
+       0.905 close to 0.908 from above
+
+5. 
+
+   1. 
+       #+begin_src R :results output graphics file :file income.png :exports both
+         library(ggplot2)
+         election = read.csv("./election2016.csv")
+
+         ggplot(election,aes(x=trump.vote,y=income.ineq))+geom_point()+geom_smooth(method=lm,col="red")+labs(x="trump vote",y="income inequality")
+       #+end_src
+
+       #+RESULTS:
+       [[file:income.png]]
+
+      #+begin_src R :results output graphics file :file medianincome.png :exports both
+        library(ggplot2)
+        election = read.csv("./election2016.csv")
+
+        ggplot(election,aes(x=trump.vote,y=median.income))+geom_point()+geom_smooth(method=lm,col="red")+labs(x="trump vote",y="median income")
+      #+end_src
+
+      #+RESULTS:
+      [[file:medianincome.png]]
+
+      I would say median income is a better predictor of trump vote
+
+   2. 
+       #+begin_src R :results output :exports both
+         election = read.csv("./election2016.csv")
+
+         cor(election$income.ineq,election$trump)
+         cor(election$median.income,election$trump)
+       #+end_src
+
+       #+RESULTS:
+       : [1] -0.1716562
+       : [1] -0.5925995
+
+      median income is a better predictor of trump vote because it has a greater (absolute value) R^2
+
+   3.
+
+      #+begin_src R :results output :exports both
+        election = read.csv("./election2016.csv")
+        lm(trump.vote~median.income,data=election)
+      #+end_src
+
+      #+RESULTS:
+      : 
+      : Call:
+      : lm(formula = trump.vote ~ median.income, data = election)
+      : 
+      : Coefficients:
+      :   (Intercept)  median.income  
+      :     8.595e-01     -6.559e-06  
+      : 
+
+      median income in CA=60487
+
+      #+begin_src R :exports both
+        8.595e-01 + (-6.559e-06) * 60487
+
+      #+end_src
+
+      #+RESULTS:
+      : 0.462765767
+
+      predicted: 0.46
+
+      residual:0.33-0.46 = 0.13

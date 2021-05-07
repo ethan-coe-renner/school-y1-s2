@@ -1,0 +1,48 @@
+#+title: Midterm 4 Review
+#+author: Ethan Coe-Renner
+
+
+| test                       | use                          |
+|----------------------------+------------------------------|
+| two means                  | one numeric, one binary      |
+| chi square goodness of fit | one categorical              |
+| chi square independence    | two categorical              |
+| Anova                      | one numeric, one categorical |
+| correlation and regression | two numeric                  |
+
+* ANOVA
+Relationship between risk score and modality of online courses
+
+H_0: group means are the same
+
+H_a: group means are different
+
+#+begin_src R :results output :exports both
+  survey = read.csv("./surveySp2021.csv")
+
+  summary(aov(gpa~modality_for_online_courses, data=survey))
+#+end_src
+
+#+RESULTS:
+:                              Df Sum Sq Mean Sq F value Pr(>F)
+: modality_for_online_courses   2   1.65  0.8262    1.05  0.353
+: Residuals                   112  88.12  0.7868               
+
+p > 0.05, fail to reject H_0
+
+now doing that by hand
+#+begin_src R :results output :exports both
+  survey = read.csv("./surveySp2021.csv")
+
+  table(survey$modality_for_online_classes)
+
+  tapply(survey$risk_score,survey$modality_for_online_courses,sd)
+
+#+end_src
+
+#+RESULTS:
+: < table of extent 0 >
+: Asynchronous       Hybrid  Synchronous 
+:     6.232343     6.906258     6.633113 
+
+more stuff after this, got lazy

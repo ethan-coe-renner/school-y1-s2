@@ -1,0 +1,60 @@
+#+title: Regression Analysis
+#+author: Ethan Coe-Renner
+
+* basics
+
+regression used to make predictions
+
+* ggplot
+#+begin_src R
+  ggplot(baseball, aes(x=RD,y=W))+geom_point()+
+    geom_smooth(method=lm,col="red")+labs(x="Runs Over Opponent",y="wins")
+#+end_src
+
+* Finding equation of a regresnsion line
+
+y = outcome, response, dependent variable
+
+x = feature, predictor, independent variable
+
+model: $\hat{y} = mx + b$
+
+#+begin_src R
+  lm(y~x,data=dataset)
+#+end_src
+
+gives intercept and slope (RD)
+
+intercept: value of y when x is 0
+
+slope: $\frac{\Delta{}y}{\Delta{}x}$
+
+* Hypothesis test for 0 slope
+H_0: slope of regression = 0
+H_a: slope of regression \ne 0
+
+*Primary test for relationship between 2 numeric variables*
+
+#+begin_src R
+  summary(lm(y~x,data=dataset))
+#+end_src
+
+* Prediction
+
+got equation $\hat{y} = 0.1x+80.9$
+
+How many wins does our model predit if we score 169 more wins than our opponents?
+
+0.1(169)+80.9 \approx 99
+
+* Predictions vs Reality
+Residual = Actual - predicted
+
+* Measuring the fit of regression line
+
+R^2 = proportion of variance in y explained by the model
+
+given in the summary code from above labeled "Multiple R-squared"
+
+always between 0 and 1, 1 means the line is a stronger predictor
+

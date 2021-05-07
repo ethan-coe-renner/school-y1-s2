@@ -1,0 +1,79 @@
+#+title: Prediction Markets
+#+author: Ethan Coe-Renner
+
+* What are Prediction markets
+Prediction markets are markets in which contracts are traded which resolve based on the outcome of events.
+
+Ex. In the 2020 election, contracts were sold that could be redeemed for $1 if Trump won, and were worthless if he lost.
+The market price reflects the expected value of the contract, which is calculated by P(Trump wins) * $1.
+Therefore the price, as a fraction of $1, can be interpreted as a prediction of the probability that Trump will win.
+
+- Efficient Market Hypothesis
+
+(Wolfers 2006)
+
+* Innovations
+Some of the most recent innovations have come in the form of decentralized markets.
+This usually comes in the form of cryptocurrency.
+
+Decentralized markets have a number of advantages over centralized markets:
+- Cost
+- Geographical limitations
+- Trust
+
+* Difficulties with Decentralized Prediction Markets
+
+- Resolving markets
+
+In a decentralized market, there is no central authority to resolve the market, and you can't just trust people because they might have a lot of stake in the wrong outcome.
+
+In "Augur: A Decentralized Oracle and Prediction Market Platform" (Alexander 2019) a number of researchers describe a solution to this problem.
+The solution is beyond the scope of this talk, however the general idea is to have individuals stake reputation (in the form of a cryptocurrency) on the "correct" outcome.
+
+* Uses for Prediction Markets
+"Prediction markets have been used to forecast elections, movie revenues,
+corporate sales, project completion, economic indicators and Saddam Hussein’s demise." (Wolfers 2006)
+
+Other uses include:
+- Pentagon used markets to predict geopolitical risk
+- Firms use prediction markets to predict R&D outcomes, product success, regulatory outcomes, etc.
+- Predicting disease outbreaks
+
+* Use in Politics
+
+One particulary interesting use for prediction markets is detailed in Robin Hanson's "Shall We Vote on Values, But Bet on Beliefs?"
+In it, Hanson describes a political system in which representative democracy is used to determine the values society wishes to maximize.
+However, the particular policies that are implemented would be based on the outcome of a prediction market on which policy would maximize those values.
+
+He argues this would be preferable to traditional democracy because:
+- "Democracies fail largely by not aggregating available information."
+- "It is not that hard to tell rich happy nations from poor miserable ones."
+- "Betting markets are our best known institution for aggregating information."
+
+* Perverse Incentives
+A perverse incentive is when a system creates incentives which are contrary to the intentions of the system's designers.
+
+A classic example of perverse incentives in prediction markets are *Assassination Markets*.
+
+- Jim Bell's "Assassination Politics" describes in some detail how such a system might work.
+
+* Regulation
+One popular regulation strategy is to limit the amount of money one can spend on any contract. 
+- PredictIt
+This reduces the severity of any perverse incentives.
+
+Problems
+1. It can be difficult to know beforehand what kinds of markets will create such incentives
+2. Cryptocurrency
+3. Reduce effectiveness
+
+* References
+
+Alexander, Stephanie, Peterson, Jack et. al. 2019. "Augur: a Decentralized Oracle and Prediction Market Platform (v2.0)" /Forecast Foundation./
+
+Bell, Jim. 1997. "Assassination Politics"
+
+Hanson, Robin. 2013. "Shall We Vote on Values, But Bet on Beliefs?" /Journal of Practical Philosophy/
+
+Wolfers, Justin and Zitzewitz, Eric. 2006. "Prediction Markets in Theory and Practice." /National Bureau of Economic Research./
+

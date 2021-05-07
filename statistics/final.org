@@ -1,0 +1,257 @@
+#+title: Final
+#+author: Ethan Coe-Renner
+
+* Problem 1
+1. 
+    mean = (1*35 + 2 * 23 + 3 * 14 + 4 * 4)/(24+35+23+14+4) = 1.39
+
+    first quartile: (24+35+23+14+4) = 100, first quartile at 25th in dataset, first quartile = 1
+
+    standard deviation = sqrt(1/100 * (24*(0-1.39)^2+35*(1-1.39)^2+23*(2-1.39)^2+14*(3-1.39)^2+4*(4-1.39)^2)) = 1.11
+
+2. 
+    #+begin_src R :results output :exports both
+        p = 1.39
+        sd = 1.11
+
+        t = qt(0.975,100)
+
+        print(p+sd*t) # high
+
+        print(p-sd*t) # low
+    #+end_src
+
+    #+RESULTS:
+    : [1] 3.592208
+    : [1] -0.8122084
+
+    we can be 95% confident that the population mean number of goals is less than 3.59.
+3. 
+    H_0: mean of sample = 1.325
+    H_a: mean of sample > 1.325
+
+    #+begin_src R :exports both
+        sd = 1.11
+        mean = 1.39
+        null = 1.325
+
+        t = (mean-null)/sd
+
+        pvalue = (1-pt(t,100-1))
+    #+end_src
+
+    #+RESULTS:
+    : 0.476710878556741
+
+    I failed to reject the null because p-value is greater than 0.05
+    
+* Problem 2
+1. 
+    p_{energy} = 1/6
+
+    p_{attack} = 1/6
+
+    p_{energy or attack} = 1/6 + 1/6 = 2/6 = 1/3
+
+    p_{heart} = 1/6
+
+    p_{at least 1 heart in 3 rolls} = 1/6 + 1/6 + 1/6 = 1/2
+
+    therefore, rolling at least one heart in three rolls is more likely
+
+    #+begin_src R :results output :exports both
+                                                # finding chance of energy/attack
+        values = c(1,0)
+        probs = c(1/6+1/6,4/6)
+
+        propWins = replicate(1000,sum(sample(values,1,probs,replace=TRUE)))
+        print(sum(propWins)/1000)
+
+                                                # finding chance heart appears at least once in 3 rolls
+        values = c(1,0)
+        probs = c(1/6,5/6)
+
+        propWins = replicate(1000,sum(sample(values,3,probs,replace=TRUE)))
+        print(sum(propWins>=1)/1000)
+    #+end_src
+
+    #+RESULTS:
+    : [1] 0.319
+    : [1] 0.442
+
+    the first one agrees with my calculation of 1/3, the second is a bit farther, though it is pretty close.
+
+2. 
+    EV_{hearts in 2 rolls} = 1/6 + 1/6 = 1/3
+
+    sd_{hearts in 2 rolls} = sqrt(((0-1/3)^2+(1-1/3)^2+(2-1/3)^2)/3) = 1.05
+
+3. 
+    H_0: number of attacks = 10 (60/6)
+    H_a: number of attacks > 10
+
+    #+begin_src R :results output :exports both
+        null = 1/6
+        se = sqrt((null * (1-null))/60)
+
+        t = qt(0.95,59)
+
+        print(null + t * se) # high
+        print(null - t * se) # low
+    #+end_src
+
+    #+RESULTS:
+    : [1] 0.2470672
+    : [1] 0.08626617
+
+    actual percentage: 16/60 = 0.26667
+
+    therefore I reject the null hypothesis because 0.26667 > 0.247 and conclude that Eben is biasing his die towards attacks
+
+* Problem 3
+1. 
+    #+begin_src R :results output graphics file :file ramenStars.png :exports both
+      library(ggplot2)
+      ramen = read.csv("~/school/statistics/ramen.csv")
+      ggplot(ramen,aes(x=Stars)) +
+        geom_histogram(breaks=seq(0,5,by=0.5),fill = "green",
+                       color="black")+
+        labs(x="stars", y="ramen",
+             title="ramen stars")
+    #+end_src
+
+    #+RESULTS:
+    [[file:ramenStars.png]]
+#+begin_src R :results output :exports both
+  ramen = read.csv("~/school/statistics/ramen.csv")
+
+  summary(ramen$Stars)
+#+end_src
+
+#+RESULTS:
+:    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+:   0.000   3.312   3.750   3.749   4.500   5.000       2 
+
+The distribution is bimodal and left skewed. There are no outliers and the center is around 3.75.
+the data range from 0 to 5 (range = 5), with an IQR of 1.19.
+
+1. 
+    #+begin_src R :results output graphics file :file countryStars.png :exports both
+      library(ggplot2)
+      ramen = read.csv("~/school/statistics/ramen.csv")
+      ggplot(ramen, aes(x=Stars, y=Country))+ geom_boxplot()
+    #+end_src
+
+    #+RESULTS:
+    [[file:countryStars.png]]
+
+    It appears as though japan has a slightly higher average star rating, with South Korea and the US coming second and third respectively.
+
+2.
+   H_0: there is no significant difference in mean star ratings between the 3 countries.
+
+   H_a: there is a significant difference in mean star ratings between the 3 countries.
+
+   
+    #+begin_src R :results output :exports both
+    ramen = read.csv("./ramen.csv")
+    summary(aov(Stars~Country,data=ramen))
+    #+end_src
+
+    #+RESULTS:
+    :              Df Sum Sq Mean Sq F value   Pr(>F)    
+    : Country       2   47.1  23.554   26.11 9.01e-12 ***
+    : Residuals   979  883.3   0.902                     
+    : ---
+    : Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    : 2 observations deleted due to missingness
+    
+    p-value = 9.01e-12 < 0.05, therefore I reject the null and conclude that there is a significant difference in mean Stars between the three countries.
+
+* Problem 4
+1. 
+    #+begin_src R :results output :exports both
+      ramen = read.csv("./ramen.csv")
+      table(ramen$Style, ramen$Country)
+    #+end_src
+
+    #+RESULTS:
+    :       
+    :        Japan South Korea USA
+    :   Bar      0           0   1
+    :   Bowl   126          68  70
+    :   Box      2           0   1
+    :   Can      0           0   1
+    :   Cup     49          40  70
+    :   Pack   155         183 128
+    :   Tray    20          18  52
+
+2. 
+
+   1. (126+68+70)/889+(126+2+49+155+20)/889 - 126/889= 490/889 chance that bowls or in Japan
+
+   2. 126/(126+2+49+155+20) = 0.35 = 35%
+
+3.
+
+   
+   H_0: Style and Country are independent
+
+   H_a: Style and Country are dependent
+
+   #+begin_src R :exports both
+     obs=c(0,0,1,126,68,70,2,0,1,0,0,1,49,40,70,155,183,128,20,18,52)
+     exp=c(352/889,309/889,322/889,264*352/889,264*309/889,
+           264*322/889,3*352/889,3*309/889,3*322/889,352/889,309/889,
+           322/889+159*352/889,159*309/889,159*322/889,466*352/889,
+           466*309/889,90*322/889,90*352/889,90*309/889,
+           90*322/889)
+
+     chisq=sum((obs-exp)^2/exp)
+
+     df=(3-1) * (7-1)
+
+     1-pchisq(chisq,df)
+   #+end_src
+
+   #+RESULTS:
+   : 0
+
+   the p-value rounds to 0, therefore it is less than 0.05 and I reject the null and conclude that Style and country are dependent.
+      
+* Problem 5
+1. Qnorm take as input a probability p and gives you a z-score for which there is a p probability that a random choice from the sample is less than that z, assuming the sample follows the normal distribution.
+
+   [[./qnorm.png]]
+
+   pnorm takes as input a z score and returns the probability that a random choice from the sample is less than that z score.
+
+   [[./pnorm.png]]
+
+2.
+   A basketball team has a mean score of 60 points per game  with a standard deviation of 9 points.
+
+   Find the probability that this team will get at least 70 points in their next game.
+
+   #+begin_src R :exports both
+     z = (70-60)/9
+     1-pnorm(z)
+   #+end_src
+
+   #+RESULTS:
+   : 0.133260262902505
+
+   13% chance that the team gets at least 70 points in their next game.
+
+   Next, find the number of points that the team can be 75% sure they will get.
+
+   #+begin_src R :exports both
+     z = qnorm(0.75)
+
+     60-z*9
+   #+end_src
+
+   #+RESULTS:
+   : 53.9295922482353
+
+   the team can be 75% sure that they will get at least 53 points.

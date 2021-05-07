@@ -1,0 +1,11 @@
+#+title: Worksheet 22
+#+author: Ethan Coe-Renner
+
+1.
+   | S_1 | S_0 | function       |
+   |   0 |   0 | load           |
+   |   0 |   1 | shift Q3 to Q0 |
+   |   1 |   0 | hold           |
+   |   1 |   1 | up counter     |
+
+   [[./Ws22.jpg]]

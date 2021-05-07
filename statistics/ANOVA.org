@@ -1,0 +1,72 @@
+#+title: ANOVA
+#+author: Ethan Coe-Renner
+
+* ANalysis Of VAriance
+
+|                | Two sample t test                | ANOVA                            |
+| use            | compare means between two groups | compare means between k>2 groups |
+| null           | mean_{group 1} = mean_group 2    | all group means are equal        |
+| test statistic | t = \frac{x_1 bar - x_2 bar}(SE) | F = ?                            |
+
+
+F = \frac{between group variance}{within group variance}
+
+
+#+begin_src R :results output
+  survey = read.csv("./surveySp2021.csv")
+  summary(aov(risk_score~pacific_response_to_covid_19,data=survey))
+  ## numeric~categorical
+#+end_src
+
+#+RESULTS:
+:                               Df Sum Sq Mean Sq F value Pr(>F)
+: pacific_response_to_covid_19   2    109   54.27   1.215  0.301
+: Residuals                    112   5002   44.66               
+
+
+F=1.215 \therefore between group variance is a little greater than within group variance
+
+Pr(>F) is the p-value = 0.301 > 0.05, therefore fail to reject null
+
+#+begin_src R :results output
+  survey = read.csv("./surveySp2021.csv")
+  table(survey$pacific_response_to_covid_19)
+#+end_src
+
+#+RESULTS:
+: 
+: Dissatisfied      Neutral    Satisfied 
+:           10           57           48 
+
+total sample size = 115
+
+Grand mean = \sum{sample size * sample mean}/total sample size
+
+
+*within group variance*
+
+SSE = \sum{(sample size -1)*sample sd^2}
+
+SSE = 5001
+
+MSEC (mean square error) = \frac{5001}{df} = \frac{5001}{112} = 44.66
+
+
+*between group variance*
+
+SSTr (sum of square treatment (group)) = \sum{(sample mean - grand mean)^2 * sample size}
+
+
+SSTr = 109
+
+mean square = SSTR / (df = number of groups -1) = 54.27
+
+F = mean square / MSEC
+
+*Rejection Region*
+qf(1-\alpha,df_{num}, df_{denom}) = 3.1
+
+3.1 > 1.2, fail to reject the null
+
+*p-value*
+p = 1-pf(F,df_{num},df_{denom}) = 1-pf(1.2,2,112) = 0.3 > 0.05, therefore fail to reject the null

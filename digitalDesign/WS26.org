@@ -1,0 +1,25 @@
+#+title: Worksheet 26
+#+author: Ethan Coe-Renner
+
+1. input signals: C, FGT, TYR
+2. output signals: 6 bits, red,yellow,green for two lights
+3. States: NoCar, CarWait, RoadGreen, RoadYellow
+4. [[./Ws26.JPG]]
+5.
+   (c,TYR,FGT) in middle 8 columns
+
+   r_{h} for ex means highway red
+
+   | Current State | (0,0,0)    | (0,0,1)    | (0,1,0)   | (0,1,1)    |
+   |---------------+------------+------------+-----------+------------+
+   | NoCar         | NoCar      | NoCar      | Nocar     | NoCar      |
+   | CarWait       | CarWait    | CarWait    | RoadGreen | RoadGreen  |
+   | RoadGreen     | RoadGreen  | RoadYellow | RoadGreen | RoadYellow |
+   | RoadYellow    | RoadYellow | RoadYellow | NoCar     | NoCar      |
+
+   | Current State | (1,0,0)    | (1,0,1)    | (1,1,0)   | (1,1,1)    | output (r_{h}y_{h}g_{h}r_{r}y_{r}g_{r}) |
+   |---------------+------------+------------+-----------+------------+-----------------------------------------|
+   | NoCar         | CarWait    | CarWait    | CarWait   | CarWait    |                                  001100 |
+   | CarWait       | CarWait    | CarWait    | RoadGreen | RoadGreen  |                                  010100 |
+   | RoadGreen     | RoadGreen  | RoadYellow | RoadGreen | RoadYellow |                                  100001 |
+   | RoadYellow    | RoadYellow | RoadYellow | NoCar     | NoCar      |                                  100010 |

@@ -6,37 +6,41 @@
 Prediction markets are markets in which contracts are traded which resolve based on the outcome of events.
 
 The price of these contracts on the free market can, in principle, be used to determine the aggregate prediction
-of market participants of the likelyhood of the event. In partucular, absent any government or other interference,
+of market participants of the likelihood of the event. In particular, absent any government or other interference,
 the market price divided by the value given a positive resolution gives the probability of a positive resolution.
 
 These markets are used in many areas and come in many types. They have be used for sports, politics, world events,
 scientific discoveries, etc. Prediction markets can use fiat currency, crypto-currency, and some even have no currency.
 
 * Approaches
-I hope to address in my essay how prediction markets work, then some innovations in the space,
-some particular use cases for them, the different structures of prediction markets and the effects that this structure
-has on the accuracy of the market, and perverse incentives.
+I hope to address in my essay:
+- how prediction markets work
+- some innovations in the space
+- some particular use cases for them
+- the different structures of prediction markets and the effects that this structure
+  has on the accuracy of the market
+- perverse incentives.
 
 ** Function
-Described in Wolfers 2006.
+Described in Wolfers 2006. 
 
 Efficient Market Hypothesis implies that prediction markets can efficiently aggregate information.
 
-Wolfers notes that an important role of prediction markets is in incentivising information discovery.
+Wolfers notes that an important role of prediction markets is in incentivizing information discovery.
 
-additionally, prediction markets incentivise truthful revalation of beliefs. they cite Hanson and Oprea (2005),
-which argues that manipulation in prediction markets increases accuracy because it increases te rewards for informed trading
+additionally, prediction markets incentivise truthful revelation of beliefs. they cite Hanson and Oprea (2005),
+who argue that manipulation in prediction markets increases accuracy because it increases the rewards for informed trading
 
 ** Innovations
 Some of the most recent innovations in prediction markets have come in the form of decentralized markets.
-This ussually takes the form of cryptocurrency trading.
+This usually takes the form of cryptocurrency trading.
 
 The argument for decentralized prediction markets is that it lowers cost and is closer to a fully free market,
-which theoretically results in more acurate prices.
+which theoretically results in more accurate prices.
 
-The problem with decencralized markets, as described in Peterson (2019), is that centralization is the easiest way to
+The problem with decentralized markets, as described in Alexander (2019), is that centralization is the easiest way to
 have a trustworthy entity maintain a ledger of trades and resolve contracts.
-Peterson (2019) describes a possible solution to these problems which has been implemented as the Augur platform.
+"Augur: a Decentralized Oracle and Prediction Market Platform (v2.0)" (Alexander 2019) describes a possible solution to these problems which has been implemented as the Augur platform.
 
 ** Structures
 Prediction markets can be used on binary events trivially: trusted entity sells pairs of contracts for $1.
@@ -45,24 +49,56 @@ the $1 price and who gets which contract. Once enough contracts are sold, a seco
 
 Prediction markets can however be used also to predict continuous variables (vote share of incumbent).
 The simplest method for this is to have a similar system as above, but sell more than 2 for $1.
-ex. sell 4 contracts for $1, the first resolves to $1 if incumbent recieves <25% of vote, the second if between 25% and 50%, etc.
+ex. to predict value of x \in [0,100], sell 4 contracts for $1, the first resolves to $1 if x<25, the second if 25<x<50, etc.
 
 Prediction markets can also come in different forms of payment. As previously mentioned, they can come in the form of fiat or cryptocurrency.
 Some don't even use currency and are entirely reputation based. 
-In "Prediction Markets: Does Money Matter?", authors Emile Servan-Schreiber and David M. Pennock look at the importance of real money in prediction markets.
+"Prediction Markets: Does Money Matter?" (2004) looks at the importance of real money in prediction markets.
+
+** Use Cases
+"Prediction markets have been used to forecast elections, movie revenues,
+corporate sales, project completion, economic indicators and Saddam Hussein’s demise." (Wolfers 2006)
+
+Another use case for prediction markets is the political system Robin Hanson describes in "Shall We Vote on Values, But Bet on Beliefs?" (Hanson 2013).
+He describes a system where representative democracy is used to determine the values society wishes to maximize,
+but prediction markets are used to determine what policies will be most effective at bringing about those values.
+He argues that many of the bad policies that get implemented are implemented because experts are not advising policy.
+In his system, those who are experts (and are right) would be rewarded for participating in the political process, thereby giving better results.
 
 ** Perverse Incentives
 One problem with prediction markets which has been proposed is their generation of perverse incentives.
-A classic example are assassination markets. This is a market for predicting the date of a person's death.
+A classic example are assassination markets. These are markets for predicting the date of a person's death.
 The problem is that it creates an incentive for market participants to take action to force their "prediction"
-to come true. In Jim Bell's essay "Assassination Politics", he illustrates how such a market could be used to
-pay assasins in such a way to make assigning criminal liability very difficult. He argues that in such a situation
-the assassin is being paid for picking the date correctly, not performing the action of the assassin. 
+to come true, i.e assassinating the person in question. In Jim Bell's essay "Assassination Politics" (1997), Bell illustrates how such a market could be used to
+pay assassins in such a way to make assigning criminal liability very difficult. He argues that in such a situation
+the assassin is being paid for picking the date correctly, not performing the action of the assassin, therefore the payment is not evidence of the crime. 
 
-This leads to some questions about how te regulate prediction markets. We, ideally, want to prevent markets which create perverse incentives,
+This leads to some questions about how to regulate prediction markets. We, ideally, want to prevent markets which create perverse incentives,
 however this has two problems:
 1. It can be difficult to know beforehand what kinds of markets will create such incentives. It is even more difficult to enumerate these in law.
-2. With the rise of cryptocurrency markets such as Augur and Polymarket, regulation of prediction markets are extraordinarily difficult.
+2. With the rise of cryptocurrency markets such as Augur (Alexander 2019) and Polymarket, regulation of prediction markets is extraordinarily difficult.
 
-One example of regulation in prediction markets is PredictIt, a political prediction market run as a non-profit by a university
-Traders on PredictIt are not allowed to spend more than $800 on buying any one contract. This, in principle, limits the severity of perverse incentives.
+One example of regulation in prediction markets is PredictIt, a political prediction market run as a non-profit by Victoria University.
+Traders on PredictIt are not allowed to spend more than $800 on any one contract. This, in principle, limits the severity of perverse incentives.
+
+Metaculus (non currency based markets)
+
+* References
+
+Alexander, Stephanie, Peterson, Jack et. al. 2019. "Augur: a Decentralized Oracle and Prediction Market Platform (v2.0)" /Forecast Foundation./
+
+Bell, Jim. 1997. "Assassination Politics"
+
+Brown, Alasdair, Reade, J. James, Williams, Leighton Vaughan. 2019. /International Journal of Forecasting./
+Volume 35, Issue 1.
+
+Galeback, Brian, Pennock, David M., et. al. 2004, "Prediction Markets: Does Money Matter?" /Electronic Markets./
+Volume 14, Issue 3.
+
+Hanson, Robin and Oprea, Ryan. 2009. "A Manipulator Can Aid Prediction Market Accuracy." /Economica./ Volume 76, Issue 302.
+
+Hanson, Robin. 2013. "Shall We Vote on Values, But Bet on Beliefs?" /Journal of Practical Philosophy/
+
+Wolfers, Justin and Zitzewitz, Eric. 2006. "Prediction Markets in Theory and Practice." /National Bureau of Economic Research./
+
+

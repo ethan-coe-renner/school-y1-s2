@@ -1,0 +1,81 @@
+#+title: Lab 8 (Chi-square Tests)
+#+author: Ethan Coe-Renner
+
+1. 
+    H_0: p_f = p_s = p_j = p_{sr} = $\frac{1}{4}$
+
+    H_a: one of these is not equal
+   
+    #+begin_src R :results output :exports both
+      survey = read.csv("./surveySp2021.csv")
+
+      table(survey$class_standing)
+    #+end_src
+
+    #+RESULTS:
+    : 
+    :  Freshman    Junior    Senior Sophomore 
+    :        15        35        16        49 
+
+    #+begin_src R :exports both
+      obs = c(15,35,16,49)
+      exp = rep(115/4,4)
+      chisq=sum((obs-exp)^2/exp)
+      1-pchisq(chisq,3)
+    #+end_src
+
+    #+RESULTS:
+    : 3.9009949545088e-06
+
+    therefore, because p-value = 0.00000039 < 0.05, I reject the null hypothesis and conclude that
+    the distribution of class standing differs significantly from the uniform distribution.
+
+2.
+   #+begin_src R :results output graphics file :file deaths.png :exports both
+     library(ggplot2)
+     survey = read.csv("~/school/statistics/surveySp2021.csv")
+     ggplot(survey,aes(x=defund_police,group=marijuana_product))+
+       geom_bar(aes(y=..prop..))+
+       facet_grid(.~marijuana_product)+scale_y_continuous(labels=scales::percent)+
+       ylab('Percent')+xlab('defund police support')
+   #+end_src
+
+   #+RESULTS:
+   [[file:deaths.png]]
+
+   H_0: marijuana consumption and support for defunding the police are independent.
+
+   H_a: marijuana consumption and support for defunding the police are dependent.
+
+
+    |                | Defund             | Do not defund      | Maybe Defund       | total |
+    | consumed       | 30 * 37/115 = 9.65 | 47 * 37/115 = 15.1 | 38 * 37/115=12.2   |    37 |
+    | never consumed | 30 * 78/115 =20.34 | 47 * 78/115 = 31.9 | 38 * 78/115 = 25.8 |    78 |
+    | total          | 30                 | 47                 | 38                 |   115 |
+
+   #+begin_src R :results output :exports both
+     survey = read.csv("./surveySp2021.csv")
+
+     table(survey$marijuana_product,survey$defund_police)
+   #+end_src
+
+   #+RESULTS:
+   :                           
+   :                            Defund Do Not Defund Maybe Defund
+   :   Consumed Marijuana           14            13           10
+   :   Never Consumed Marijuana     16            34           28
+   
+
+   #+begin_src R :exports both
+     exp = c(9.65,15.1,12.2,20.34,31.9,25.8)
+     obs = c(14,13,10,16,34,28)
+
+     chisq = sum((obs-exp)^2/exp)
+
+     pvalue = 1-pchisq(chisq,2)
+   #+end_src
+
+   #+RESULTS:
+   : 0.142164996408919
+
+   therefore, because 0.14 > 0.05, I fail to reject the null and conclude that marijuana consumption and support for police defunding are independent.

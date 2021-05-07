@@ -1,0 +1,47 @@
+@ARTICLE{augur,
+AUTHOR="Jack Peterson, Joseph Krug, Micah Zoltu, Austin K. Williams, and Stephanie Alexander",
+TITLE="Augur: a Decentralized Oracle and Prediction Market Platform (v2.0)",
+JOURNAL="Forcast Foundation",
+YEAR=2019
+}
+
+@ARTICLE{assassination,
+AUTHOR="Jim Bell",
+TITLE="Assassination Politics",
+YEAR=1997
+}
+
+@ARTICLE{brown:inf,
+AUTHOR="Alasdair Brown, J. James Reade, Leighton Vaughan Williams",
+TITLE="When are prediction market prices most informative?",
+JOURNAL="International Journal of Forcasting",
+VOLUME=35,
+ISSUE=1,
+YEAR=2019
+}
+
+@ARTICLE{servan-shreiber:dmm,
+AUTHOR="Emile Servan-Schreiber, Justin Wolfers, David M. Pennock, Brian Galebach",
+TITLE="Prediction Markets: Does Money Matter",
+JOURNAL="Electronic Markets",
+VOLUME=14,
+ISSUE=3,
+YEAR=2004
+}
+
+@ARTICLE{hanson:manipulator,
+AUTHOR="Robin Hanson and Ryan Oprea",
+TITLE="A Manipulator Can Aid Prediction Market Accuracy",
+JOURNAL="Economica",
+VOLUME=76,
+ISSUE=302,
+YEAR=2009
+}
+
+
+@ARTICLE{wolfers:tap,
+AUTHOR="Justin Wolfers and Eric Zitzewitz",
+TITLE="Prediction Markets in Theory and Practice",
+JOURNAL="National Bureau of Economic Research",
+YEAR=2006
+}

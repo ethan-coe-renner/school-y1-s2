@@ -1,0 +1,14 @@
+#+title: Worksheet 23
+#+author: Ethan Coe-Renner
+
+1. 
+   [[./Ws23.JPG]]
+2.
+   | present state | w=0   | w=1  | output z |
+   |---------------+-------+------+----------|
+   | idle          | idle  | S1   |        0 |
+   | S1            | S10   | S1   |        0 |
+   | S10           | idle  | S101 |        0 |
+   | S101          | S1010 | S1   |        0 |
+   | S1010         | idle  | S101 |        1 |
+   

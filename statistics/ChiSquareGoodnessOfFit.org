@@ -1,0 +1,54 @@
+#+title: Chi Square Goodness-of-Fit
+#+author: Ethan Coe-Renner
+
+* Hypothesis Test
+same number of skittles in a bag
+
+p_r = proportion of red skittles in bag
+
+H_0: p_r = p_o = p_y = p_g = p_p = $\frac{1}{5}$
+
+H_a: one of the p \ne $\frac{1}{5}$
+
+| Red | Orange | Yellow | Green | Purple | Total |
+|-----+--------+--------+-------+--------+-------|
+|  24 |     11 |     14 |    18 |     16 |    83 |
+
+| Color  | Observed | Expected (under null) |
+|--------+----------+-----------------------|
+| Red    |       24 | $\frac{83}{5} = 16.6$ |
+| Orange |       11 |                  16.6 |
+| Yellow |       14 |                  16.6 |
+| Green  |       18 |                  16.6 |
+| Purple |       16 |                  16.6 |
+| Total  |       83 |                    83 |
+
+\Chi^2 = $\sum{}\frac{(obs-exp)^2}{exp}$
+
+= $\frac{(24-16.6)^2}{16.6}$ + ... \approx 5.75
+
+This number is large when null and observed is far apart
+
+takes the place of z or t
+
+df = number of categories-1
+
+skittles df = 5-1=4
+
+
+*Rejection Region*
+
+\Chi_c = qchisq(1-\alpha,df)
+
+reject null if our \Chi^2 is greater than \Chi_c
+
+*P-value*
+
+1-pchisq(\Chi^{2},df)
+
+reject if below \alpha
+
+| Null Hypothesis  | H_0: pop. proportions = hypothesized values |
+| Test Statistic   | \Chi^2 = $\sum{}\frac{(obs-exp)^2}{exp}$    |
+| Rejection Region | \Chi_c = qchisq(1-\alpha,df)                |
+| P-value          | 1-pchisq(\Chi^{2},df)                      |

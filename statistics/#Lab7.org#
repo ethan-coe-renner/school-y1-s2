@@ -1,0 +1,109 @@
+#+title: Lab 7
+#+author: Ethan Coe-Renner
+
+1. 
+   1. H_0: average-GPA_{business major} = average-GPA_{non-business major}
+
+      H_a: average-GPA_{business major} \ne average-GPA_{non-business major}
+
+   2. 
+        #+begin_src R :results output graphics file :file businessGpa.png :exports both
+          library(ggplot2)
+          survey=read.csv("./surveySp2021.csv")
+          ggplot(survey,aes(x=business_major,y=gpa))+geom_boxplot(
+                                                       fill="orange",color="black",width=0.5)
+
+        #+end_src
+
+        #+RESULTS:
+        [[file:businessGpa.png]]
+
+   3. 
+      #+begin_src R :results output :exports both
+        survey = read.csv("./surveySp2021.csv")
+        tapply(survey$gpa,survey$business_major,sd)
+      #+end_src
+
+      #+RESULTS:
+      :     Business Major Not Business Major 
+      :          0.6777741          0.9799366 
+
+      \therefore equal variance test
+
+   4. 
+      #+begin_src R :results output :exports both
+        survey = read.csv("./surveySp2021.csv")
+        t.test(gpa~business_major, data=survey,var.equal=TRUE)
+      #+end_src
+
+      #+RESULTS:
+      #+begin_example
+
+              Two Sample t-test
+      data:  gpa by business_major
+      t = 1.907, df = 113, p-value = 0.05906
+      alternative hypothesis: true difference in means is not equal to 0
+      95 percent confidence interval:
+       -0.01248409  0.65447513
+      sample estimates:
+          mean in group Business Major mean in group Not Business Major 
+                              3.401136                         3.080141 
+
+      #+end_example
+
+      with a p-value of 0.059*2 > 0.05, we fail to reject the null and conclude that there is no significant difference between the gpa of business and non-business majors.
+
+2. 
+   1. 
+        H_0: mean risk score_{violated honor code} = mean risk score_{not violated honor code}
+
+        H_a: mean risk score_{violated honor code} > mean risk score_{not violated honor code}
+
+   2. 
+        
+    #+begin_src R :results output graphics file :file riskHonor.png :exports both
+      library(ggplot2)
+      survey=read.csv("./surveySp2021.csv")
+
+      ggplot(survey,aes(x=honor_code,y=risk_score))+geom_boxplot(
+                                                      fill="orange",color="black",width=0.5)
+    #+end_src
+
+    #+RESULTS:
+    [[file:riskHonor.png]]
+
+   3. 
+      #+begin_src R :results output :exports both
+        survey = read.csv("./surveySp2021.csv")
+        tapply(survey$risk_score,survey$honor_code,sd)
+      #+end_src
+
+      #+RESULTS:
+      : Never Violated Honor Code       Violated Honor Code 
+      :                  6.567928                  7.225496 
+
+      \therefore equal variance test
+
+   4. 
+      #+begin_src R :results output :exports both
+        survey = read.csv("./surveySp2021.csv")
+        t.test(risk_score~honor_code, data=survey,var.equal=TRUE)
+      #+end_src
+
+      #+RESULTS:
+      #+begin_example
+
+              Two Sample t-test
+
+      data:  risk_score by honor_code
+      t = -1.0118, df = 113, p-value = 0.3138
+      alternative hypothesis: true difference in means is not equal to 0
+      95 percent confidence interval:
+       -4.750708  1.538587
+      sample estimates:
+      mean in group Never Violated Honor Code       mean in group Violated Honor Code 
+                                     42.66667                                44.27273 
+
+      #+end_example
+
+      with a p-value of 0.31 > 0.05, we fail to reject the null and conclude that there is no significant difference between the risk score of those who have violated the honor code and those who haven't

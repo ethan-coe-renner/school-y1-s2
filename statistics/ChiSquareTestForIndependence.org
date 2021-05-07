@@ -1,0 +1,48 @@
+#+title: Chi Squared Test for Independence
+#+author: Ethan Coe-Renner
+
+* Is marijuana consumption related to BLM support
+H_0: marijuana consumption and BLM support are independent
+
+H_a: marijuana consumption and BLM support are dependent
+
+*expected cell counts*
+
+|                | None             | partial            | full               | total |
+| consumed       | 5 * 37/115 = 1.6 | 41 * 37/115=13.2   | 69 * 37/115 = 22.2 |    37 |
+| never consumed | 5 * 78/115 =3.4  | 41 * 78/115 = 27.8 | 69 * 78/115 = 46.8 |    78 |
+| total          | 5                | 41                 | 69                 |   115 |
+
+*observed*
+
+|                | none | partial | full |
+| consumed       |    1 |       7 |   29 |
+| never consumed |    4 |      34 |   40 |
+
+calculate \Chi^2 (sum of formula for each cell): $\sum{}\frac{(obs-exp)^2}{exp}$
+
+df = 2
+
+in general, df = (# of rows - 1) * (# of cols - 1)
+
+*rejection region*
+\alpha = 0.05
+
+\Chi_c = qchisq(0.95,2) = 5.99
+
+7.7 > 5.99, reject H_0
+
+*p-value*
+\Chi^2 = 7.7
+
+p-value = 1 - pchisq(7.7,2) = 0.02
+
+0.02 < 0.05, reject H_0
+
+there is a relationship between BLM support and MJ consumtion
+
+
+| Null Hypothesis  | H_0: variables a and b are independent (variables must be categorical)                             |
+| test statistic   | $\Chi^2=\sum{}\frac{(obs-exp)^2}{exp}$, where $exp = column total * \frac{row total}{grand total}$ |
+| rejection region | reject if \X^2> \Chi_c, $\Chi_c = qchisq(1-\alpha,df)$                                             |
+| p-value          | p-value = 1-pchisq(\Chi^2,df), reject if p-value < \alpha                                          |
